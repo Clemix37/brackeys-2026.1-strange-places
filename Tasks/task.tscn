@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://uxlnk5gpkkoq"]
+
+[ext_resource type="Texture2D" uid="uid://bstkhcoqhhiws" path="res://Assets/Images/Coffee Cup.png" id="1_axtsh"]
+[ext_resource type="Script" uid="uid://cp8qy2642eu30" path="res://Tasks/task.gd" id="1_ikqyn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikqyn"]
+radius = 13.0
+
+[node name="Task" type="Area2D" unique_id=276509297]
+script = ExtResource("1_ikqyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1561064083]
+texture = ExtResource("1_axtsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1482564647]
+shape = SubResource("CircleShape2D_ikqyn")

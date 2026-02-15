@@ -1,9 +1,15 @@
 extends Node
 
+# Signals
+signal mental_health_changed(mental_health_value: int)
+
 # Variables
+var mental_health: int = 0
 var current_scene: Node
-var is_transitioning: bool = false
+# Game state variables
 var is_paused: bool = false
+# Transition variables
+var is_transitioning: bool = false
 var fade_layer: CanvasLayer
 var fade_rect: ColorRect
 var tween: Tween
@@ -12,6 +18,13 @@ var tween: Tween
 func _ready() -> void:
 	current_scene = get_tree().current_scene
 	_create_fade_layer() # seront utilisées plus tard pour les transitions
+
+# Mental health
+func set_mental_health(value: int) -> void:
+	mental_health = value
+	mental_health_changed.emit(mental_health)
+
+# Scene transitions
 
 ## Transitions de scènes
 func change_scene(path: String) -> void:

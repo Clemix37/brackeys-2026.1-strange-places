@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://v6g1c7qbtj0r"]
+
+[ext_resource type="Script" uid="uid://bixbd10dubjvk" path="res://UI/hud.gd" id="1_ne75i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_levl0"]
+bg_color = Color(0.22352941, 0.25882354, 0.30588236, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.11764706, 0.11764706, 0.14117648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne75i"]
+bg_color = Color(0.36862746, 0.8627451, 0.5411765, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer" unique_id=1452111076]
+script = ExtResource("1_ne75i")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=711258626]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MentalHealthBar" type="ProgressBar" parent="MarginContainer" unique_id=2114831901]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/outline_size = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_levl0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ne75i")
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2099260984]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1860393998]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1417471858]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MH100" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1768610829]
+layout_mode = 2
+text = "100"
+
+[node name="MH70" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1605898719]
+layout_mode = 2
+text = "70"
+
+[node name="MH40" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1602970612]
+layout_mode = 2
+text = "40"
+
+[node name="MH15" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1032001634]
+layout_mode = 2
+text = "15"
+
+[node name="MH0" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1946187009]
+layout_mode = 2
+text = "0"
