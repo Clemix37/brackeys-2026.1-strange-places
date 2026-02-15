@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="brackeys-2026.1-strange-places"
+run/main_scene="uid://ctev7e6c6tvyt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://b31bqsm5pyp5t"
 
 [physics]
 

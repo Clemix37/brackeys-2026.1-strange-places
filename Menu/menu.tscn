@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ctev7e6c6tvyt"]
+
+[ext_resource type="Script" uid="uid://p1psxfuhigwc" path="res://Menu/menu.gd" id="1_rwxi6"]
+
+[node name="Menu" type="Control" unique_id=44386744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwxi6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1843446658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=866295004]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "GAME NAME"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1933375520]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1207472535]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play"
+
+[node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1823949174]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"

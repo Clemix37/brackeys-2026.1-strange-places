@@ -1,0 +1,75 @@
+extends Node
+
+# Variables
+var current_scene: Node
+var is_transitioning: bool = false
+var is_paused: bool = false
+var fade_layer: CanvasLayer
+var fade_rect: ColorRect
+var tween: Tween
+
+## Au chargement du script
+func _ready() -> void:
+	current_scene = get_tree().current_scene
+	_create_fade_layer() # seront utilisées plus tard pour les transitions
+
+## Transitions de scènes
+func change_scene(path: String) -> void:
+	if is_transitioning: return
+	is_transitioning = true
+	# transition vers fondu noir
+	await _fade_in()
+	# change la scène
+	get_tree().change_scene_to_file(path)
+	await get_tree().process_frame # juste avant que la première frame se lance
+	current_scene = get_tree().current_scene
+	# fondu au noir vers la scène que nous venons d'ajouter
+	await _fade_out()
+	is_transitioning = false
+
+## Crée un canvas layer sur la scène actuelle
+## Puis un color_rect qui permettront d'avoir une couleur unie de transition plus tard
+func _create_fade_layer():
+	fade_layer = CanvasLayer.new()
+	fade_layer.layer = 100 # sommes sûrs qu'il est au-dessus du reste
+	add_child(fade_layer)
+	
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color.BLACK
+	fade_rect.size = get_viewport().get_visible_rect().size
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE # Ignorer la souris
+	fade_rect.modulate.a = 0.0 # Actuellement transparent
+	
+	fade_layer.add_child(fade_rect)
+
+## Crée le tween qui supprimera la transparence du fade_rect
+func _fade_in(duration: float = 0.4) -> void:
+	tween = create_tween()
+	tween.tween_property(fade_rect, "modulate:a", 1.0, duration)
+	await tween.finished
+
+## Crée le tween qui ajoutera la transparence du fade_rect
+func _fade_out(duration: float = 0.4) -> void:
+	tween = create_tween()
+	tween.tween_property(fade_rect, "modulate:a", 0.0, duration)
+	await tween.finished
+
+# Game state
+
+## Mets le jeu en pause
+func pause_game() -> void:
+	# variable globale à Godot
+	if is_paused: return
+	is_paused = true
+	get_tree().paused = true
+
+## Reprends le jeu qui avait été mis en pause
+func resume_game() -> void:
+	# variable globale à Godot
+	if not is_paused: return
+	is_paused = false
+	get_tree().paused = false
+
+## Ferme le jeu
+func quit_game() -> void:
+	get_tree().quit()
