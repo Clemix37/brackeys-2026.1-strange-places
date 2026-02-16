@@ -1,10 +1,13 @@
 [gd_scene format=4 uid="uid://dqq81165hq83l"]
 
+[ext_resource type="Script" uid="uid://dbdr6213ihyxr" path="res://Rooms/break_room.gd" id="1_6ahea"]
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="1_7ojjl"]
 [ext_resource type="PackedScene" uid="uid://jbvi70mxxetw" path="res://Characters/player.tscn" id="2_11kil"]
 [ext_resource type="PackedScene" uid="uid://v6g1c7qbtj0r" path="res://UI/hud.tscn" id="3_t1djg"]
+[ext_resource type="PackedScene" uid="uid://uxlnk5gpkkoq" path="res://Tasks/TaskArea.tscn" id="4_i8m43"]
 
 [node name="BreakRoom" type="Node2D" unique_id=875418078]
+script = ExtResource("1_6ahea")
 
 [node name="Tiles" type="Node" parent="." unique_id=1623067156]
 
@@ -29,3 +32,8 @@ z_index = 99
 position = Vector2(432, 238)
 
 [node name="HUD" parent="." unique_id=166357684 instance=ExtResource("3_t1djg")]
+
+[node name="SendMailTask" parent="." unique_id=276509297 instance=ExtResource("4_i8m43")]
+unique_name_in_owner = true
+position = Vector2(351, 253)
+task_name = "Send email"

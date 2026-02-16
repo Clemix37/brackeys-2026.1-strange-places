@@ -1,6 +1,11 @@
 extends CharacterBody2D
 
+@onready var tile_map_layer_ground_objects: TileMapLayer = $"../Tiles/TileMapLayerGroundObjects"
+@onready var highlight_rect: ColorRect = $HighlightRect
+
+@export var interact_distance: float = 32.0
 const SPEED = 300.0
+var current_cell: Vector2i = Vector2i.ZERO
 
 func _ready() -> void:
 	pass
@@ -25,3 +30,23 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = dir.normalized() * SPEED
 	move_and_slide()
+	check_interaction()
+
+func check_interaction():
+	var local_pos = tile_map_layer_ground_objects.to_local(global_position)
+	var cell = tile_map_layer_ground_objects.local_to_map(local_pos)
+	
+	var tile_data = tile_map_layer_ground_objects.get_cell_tile_data(cell)
+	if tile_data:
+		highlight_tile(cell)
+		current_cell = cell
+	else:
+		remove_highlight()
+
+
+func highlight_tile(cell):
+	highlight_rect.visible = true
+	highlight_rect.global_position = tile_map_layer_ground_objects.map_to_local(cell)
+
+func remove_highlight():
+	highlight_rect.visible = false

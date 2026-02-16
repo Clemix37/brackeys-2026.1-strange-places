@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://uxlnk5gpkkoq"]
+
+[ext_resource type="Script" uid="uid://cp8qy2642eu30" path="res://Tasks/TaskArea.gd" id="1_hmfsm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikqyn"]
+radius = 68.007355
+
+[node name="TaskArea" type="Area2D" unique_id=276509297]
+z_index = 150
+script = ExtResource("1_hmfsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1482564647]
+shape = SubResource("CircleShape2D_ikqyn")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=774284865]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "[E] Interact"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
