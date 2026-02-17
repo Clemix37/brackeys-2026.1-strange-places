@@ -23,8 +23,3 @@ shape = SubResource("RectangleShape2D_ywxx0")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1138084225]
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="HighlightRect" type="ColorRect" parent="." unique_id=1384854701]
-offset_right = 16.0
-offset_bottom = 16.0
-color = Color(0.99598277, 1, 0.055204153, 1)

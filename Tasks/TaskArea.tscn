@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cp8qy2642eu30" path="res://Tasks/TaskArea.gd" id="1_hmfsm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikqyn"]
-radius = 68.007355
+radius = 15.0
 
 [node name="TaskArea" type="Area2D" unique_id=276509297]
 z_index = 150

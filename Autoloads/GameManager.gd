@@ -4,7 +4,7 @@ extends Node
 signal mental_health_changed(mental_health_value: int)
 
 # Variables
-var mental_health: int = 0
+var mental_health: int = 100
 var current_scene: Node
 # Game state variables
 var is_paused: bool = false
@@ -21,7 +21,8 @@ func _ready() -> void:
 
 # Mental health
 func set_mental_health(value: int) -> void:
-	mental_health = value
+	# Not less than 0, not more than 100
+	mental_health = clamp(value, 0, 100)
 	mental_health_changed.emit(mental_health)
 
 # Scene transitions
