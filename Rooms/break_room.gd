@@ -1,4 +1,27 @@
 extends Node2D
 
+@onready var office_door_area: Area2D = %OfficeDoorArea
+@onready var enter_office_label: Label = %EnterOfficeLabel
+var player_in_range_door_office: bool = false
+
 func _ready() -> void:
-	pass
+	toggle_enter_office_label_visibility(false)
+	office_door_area.body_entered.connect(_on_body_entered_office_door)
+	office_door_area.body_exited.connect(_on_body_exited_office_door)
+
+func toggle_enter_office_label_visibility(to_be_visible: bool = true) -> void:
+	enter_office_label.visible = to_be_visible
+
+func _on_body_entered_office_door(body: Node2D) -> void:
+	if body.name != "Player": return
+	player_in_range_door_office = true
+	toggle_enter_office_label_visibility(true)
+
+func _on_body_exited_office_door(body: Node2D) -> void:
+	if body.name != "Player": return
+	player_in_range_door_office = false
+	toggle_enter_office_label_visibility(false)
+
+func _process(delta: float) -> void:
+	if player_in_range_door_office and Input.is_action_pressed("interact"):
+		GameManager.change_scene("res://Rooms/Office.tscn", "Office")

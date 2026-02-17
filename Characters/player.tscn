@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bl8rgxrne46ed" path="res://Assets/Images/Player/Run.png" id="3_l48on"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywxx0"]
-size = Vector2(25, 52)
+size = Vector2(25, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l48on"]
 atlas = ExtResource("2_vb825")
@@ -607,7 +607,7 @@ animations = [{
 script = ExtResource("1_5mj4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603678748]
-position = Vector2(0, 5)
+position = Vector2(0, 13.5)
 shape = SubResource("RectangleShape2D_ywxx0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1138084225]

@@ -53,37 +53,52 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ne75i")
 value = 100.0
 show_percentage = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2099260984]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1919809614]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1860393998]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3" unique_id=2099260984]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/VBoxContainer" unique_id=1860393998]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1417471858]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/VBoxContainer/MarginContainer" unique_id=1118456074]
 layout_mode = 2
-theme_override_constants/separation = 10
 
-[node name="MH100" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1768610829]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3/VBoxContainer/MarginContainer/VBoxContainer" unique_id=350845145]
 layout_mode = 2
-text = "100"
+size_flags_horizontal = 4
 
-[node name="MH70" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1605898719]
+[node name="CurrentRoomLabel" type="Label" parent="VBoxContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=48913745]
+unique_name_in_owner = true
 layout_mode = 2
-text = "70"
+theme_override_font_sizes/font_size = 35
 
-[node name="MH40" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1602970612]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3" unique_id=407395560]
 layout_mode = 2
-text = "40"
 
-[node name="MH15" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1032001634]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/VBoxContainer2" unique_id=602089199]
 layout_mode = 2
-text = "15"
+theme_override_constants/margin_left = 20
 
-[node name="MH0" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1946187009]
+[node name="TasksLists" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2/MarginContainer" unique_id=1026029551]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-text = "0"
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "[b][i]Tasks[/i][/b]"
+fit_content = true

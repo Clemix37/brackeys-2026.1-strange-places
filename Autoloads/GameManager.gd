@@ -2,10 +2,12 @@ extends Node
 
 # Signals
 signal mental_health_changed(mental_health_value: int)
+signal room_name_changed(room_name: String)
 
 # Variables
 var mental_health: int = 100
 var current_scene: Node
+var current_room: String
 # Game state variables
 var is_paused: bool = false
 # Transition variables
@@ -17,6 +19,7 @@ var tween: Tween
 ## Au chargement du script
 func _ready() -> void:
 	current_scene = get_tree().current_scene
+	current_room = ""
 	_create_fade_layer() # seront utilisées plus tard pour les transitions
 
 # Mental health
@@ -28,7 +31,7 @@ func set_mental_health(value: int) -> void:
 # Scene transitions
 
 ## Transitions de scènes
-func change_scene(path: String) -> void:
+func change_scene(path: String, room_name: String) -> void:
 	if is_transitioning: return
 	is_transitioning = true
 	# transition vers fondu noir
@@ -37,9 +40,11 @@ func change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame # juste avant que la première frame se lance
 	current_scene = get_tree().current_scene
+	current_room = room_name
 	# fondu au noir vers la scène que nous venons d'ajouter
 	await _fade_out()
 	is_transitioning = false
+	room_name_changed.emit(current_room)
 
 ## Crée un canvas layer sur la scène actuelle
 ## Puis un color_rect qui permettront d'avoir une couleur unie de transition plus tard

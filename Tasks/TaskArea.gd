@@ -9,7 +9,6 @@ extends Area2D
 @export var can_be_done_multiple_times: bool = false
 @export var collision_radius: int = 15
 
-
 # On ready variables
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var interact_label: Label = $InteractLabel

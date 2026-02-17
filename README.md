@@ -15,8 +15,8 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 Tasks:
 
 - [x] Add task system
-- [ ] Add tasks lists
-- [ ] Lower mental health depending on the task complexity
+- [X] Add tasks lists
+- [X] Lower mental health depending on the task complexity
 
 HUD:
 
@@ -26,12 +26,12 @@ HUD:
 Break Room:
 
 - [x] Borders and collisions
-- [ ]
+- [X] Navigate to Office
 
 Office:
 
 - [ ] Borders and collisions
-- [ ]
+- [X] Navigate to Break room
 
 Assets:
 

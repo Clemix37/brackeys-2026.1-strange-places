@@ -15,12 +15,12 @@ func _ready() -> void:
 
 ## Transitionne vers la scène de jeu
 func play_game() -> void:
-	GameManager.change_scene("res://Rooms/BreakRoom.tscn")
+	GameManager.change_scene("res://Rooms/BreakRoom.tscn", "Break room")
 
 # TO DELETE AFTER PUBLISH 
 
 func play_office() -> void:
-	GameManager.change_scene("res://Rooms/Office.tscn")
+	GameManager.change_scene("res://Rooms/Office.tscn", "Office")
 	
 func play_break_room() -> void:
-	GameManager.change_scene("res://Rooms/BreakRoom.tscn")
+	GameManager.change_scene("res://Rooms/BreakRoom.tscn", "Break room")

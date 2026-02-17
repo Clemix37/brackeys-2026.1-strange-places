@@ -1,21 +1,13 @@
 extends CanvasLayer
 
 @onready var mental_health_bar: ProgressBar = %MentalHealthBar
-# TEST Buttons
-@onready var mh_100: Button = $VBoxContainer/MarginContainer/HBoxContainer/MH100
-@onready var mh_70: Button = $VBoxContainer/MarginContainer/HBoxContainer/MH70
-@onready var mh_40: Button = $VBoxContainer/MarginContainer/HBoxContainer/MH40
-@onready var mh_15: Button = $VBoxContainer/MarginContainer/HBoxContainer/MH15
-@onready var mh_0: Button = $VBoxContainer/MarginContainer/HBoxContainer/MH0
+@onready var current_room_label: Label = %CurrentRoomLabel
+@onready var tasks_lists: RichTextLabel = %TasksLists
 
 func _ready() -> void:
 	GameManager.mental_health_changed.connect(_update_mental_health_bar)
-	# TEST buttons
-	mh_100.pressed.connect(set_mh_100)
-	mh_70.pressed.connect(set_mh_70)
-	mh_40.pressed.connect(set_mh_40)
-	mh_15.pressed.connect(set_mh_15)
-	mh_0.pressed.connect(set_mh_0)
+	GameManager.room_name_changed.connect(change_room_name)
+	update_tasks_lists()
 
 func _update_mental_health_bar(mental_health: int) -> void:
 	mental_health_bar.value = mental_health
@@ -48,17 +40,16 @@ func _update_mental_health_fill_color() -> void:
 		pass
 	mental_health_bar.add_theme_stylebox_override("fill", fill_style)
 
-func set_mh_100() -> void:
-	GameManager.set_mental_health(100)
+func change_room_name(room_name: String) -> void:
+	print(room_name)
+	current_room_label.text = room_name
+	current_room_label.visible = true
+	await get_tree().create_timer(4.0).timeout
+	current_room_label.visible = false
 
-func set_mh_70() -> void:
-	GameManager.set_mental_health(70)
-
-func set_mh_40() -> void:
-	GameManager.set_mental_health(40)
-
-func set_mh_15() -> void:
-	GameManager.set_mental_health(15)
-
-func set_mh_0() -> void:
-	GameManager.set_mental_health(0)
+func update_tasks_lists() -> void:
+	tasks_lists.text = "[b][i]Tasks[/i][/b]"
+	var tasks_keys = TaskManager.tasks.keys()
+	for task_key in tasks_keys:
+		var task: Task = TaskManager.tasks[task_key]
+		tasks_lists.append_text("\n- " + task.name)
