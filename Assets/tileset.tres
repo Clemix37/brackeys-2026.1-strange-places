@@ -3,12 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://biga0cvuvqxkd" path="res://Assets/tilemap_packed.png" id="1_eirx2"]
 [ext_resource type="Texture2D" uid="uid://bstkhcoqhhiws" path="res://Assets/Images/Coffee Cup.png" id="1_ihwer"]
 [ext_resource type="Texture2D" uid="uid://ddfak8r2262fw" path="res://Assets/Images/Coffee Maker.png" id="2_ji7b5"]
+[ext_resource type="Texture2D" uid="uid://ds8aq3m0lvcdc" path="res://Assets/Images/desk_new.png" id="3_iyyun"]
 [ext_resource type="Texture2D" uid="uid://bhhvlsfedgy4x" path="res://Assets/Images/Copy Machine.png" id="3_q0fyt"]
+[ext_resource type="Texture2D" uid="uid://opm2d1fodx0f" path="res://Assets/Images/pc.png" id="4_rayub"]
 [ext_resource type="Texture2D" uid="uid://brskc3dgmsd84" path="res://Assets/Images/Desk, Ornate.png" id="4_t3ig6"]
+[ext_resource type="Texture2D" uid="uid://c8cvbgbmpdpgl" path="res://Assets/Images/printer.png" id="5_abw73"]
 [ext_resource type="Texture2D" uid="uid://ioh3prie63hx" path="res://Assets/Images/Laptop.png" id="6_7nyp1"]
+[ext_resource type="Texture2D" uid="uid://bq7241xynvbei" path="res://Assets/Images/two-boxes.png" id="6_y0u6n"]
 [ext_resource type="Texture2D" uid="uid://g3bvqjcnf7ld" path="res://Assets/Images/Rotary Phones.png" id="7_u67j7"]
 [ext_resource type="Texture2D" uid="uid://diuvmdw20c6mm" path="res://Assets/Images/Water Cooler.png" id="8_86ilk"]
 [ext_resource type="Texture2D" uid="uid://nepfahi4ddsm" path="res://Assets/Images/Bins.png" id="9_f0qew"]
+[ext_resource type="Texture2D" uid="uid://cubgmvlnlrn63" path="res://Assets/Images/box.png" id="11_rayub"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ji7b5"]
 resource_name = "coffee_cup"
@@ -41,6 +46,34 @@ texture = ExtResource("2_ji7b5")
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abw73"]
+resource_name = "new_desk"
+texture = ExtResource("3_iyyun")
+texture_region_size = Vector2i(96, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -8, 48, -8, 48, 16, 44, 16, 44, 32, 20, 32, 20, 16, -36, 16, -36, 32, -44, 32, -44, 16, -48, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rayub"]
+resource_name = "pc"
+texture = ExtResource("4_rayub")
+texture_region_size = Vector2i(36, 36)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3aypu"]
+resource_name = "printer"
+texture = ExtResource("5_abw73")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -20, 24, -20, 24, 32, -24, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j3r4"]
+resource_name = "two_boxes"
+texture = ExtResource("6_y0u6n")
+texture_region_size = Vector2i(32, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -20, 24, -20, 24, 32, -24, 32)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3ig6"]
 resource_name = "copy_machine"
 texture = ExtResource("3_q0fyt")
@@ -70,7 +103,7 @@ texture = ExtResource("3_q0fyt")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -8, 8, -8, -8, 0, -8, 0, -4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nyp1"]
-resource_name = "desk"
+resource_name = "desks"
 texture = ExtResource("4_t3ig6")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 4, 8, 4)
@@ -1144,6 +1177,13 @@ texture = ExtResource("9_f0qew")
 9:7/0 = 0
 9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -8, 8, -8, -8, 0, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0u6n"]
+resource_name = "box"
+texture = ExtResource("11_rayub")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_6ahea")
@@ -1155,3 +1195,8 @@ sources/5 = SubResource("TileSetAtlasSource_u67j7")
 sources/6 = SubResource("TileSetAtlasSource_86ilk")
 sources/7 = SubResource("TileSetAtlasSource_f0qew")
 sources/8 = SubResource("TileSetAtlasSource_ghufl")
+sources/9 = SubResource("TileSetAtlasSource_y0u6n")
+sources/10 = SubResource("TileSetAtlasSource_abw73")
+sources/13 = SubResource("TileSetAtlasSource_rayub")
+sources/14 = SubResource("TileSetAtlasSource_3aypu")
+sources/15 = SubResource("TileSetAtlasSource_8j3r4")
