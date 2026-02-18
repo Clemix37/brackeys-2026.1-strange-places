@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://vnucto88mppj"]
+
+[ext_resource type="Shader" uid="uid://bd5pd7ihcyxxv" path="res://Shaders/Stress.gdshader" id="1_lv82p"]
+[ext_resource type="Script" uid="uid://uigkkw0jvuji" path="res://Game/main.gd" id="1_w1egk"]
+[ext_resource type="PackedScene" uid="uid://v6g1c7qbtj0r" path="res://UI/hud.tscn" id="2_w1egk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rchnd"]
+shader = ExtResource("1_lv82p")
+shader_parameter/processed = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.5000000712500001
+shader_parameter/pixel_size = 1.0
+shader_parameter/resolution = Vector2(400, 400)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1400401687]
+script = ExtResource("1_w1egk")
+
+[node name="RoomContainer" type="Node" parent="." unique_id=782551394]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=472013515]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=328689709]
+material = SubResource("ShaderMaterial_rchnd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="HUD" parent="." unique_id=1452111076 instance=ExtResource("2_w1egk")]
