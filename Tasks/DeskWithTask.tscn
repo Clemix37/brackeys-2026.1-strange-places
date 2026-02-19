@@ -1,0 +1,36 @@
+[gd_scene format=4 uid="uid://cmfsqydbppmlk"]
+
+[ext_resource type="Script" uid="uid://cjjjf1ddo3ghm" path="res://Tasks/desk.gd" id="1_us4pg"]
+[ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="2_rp0kd"]
+[ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea.tscn" id="3_yndqs"]
+
+[node name="Desk" type="Node2D" unique_id=1798775678]
+script = ExtResource("1_us4pg")
+
+[node name="VariantBlack" type="Node2D" parent="." unique_id=1869280117]
+
+[node name="Desk" type="TileMapLayer" parent="VariantBlack" unique_id=2081187334]
+tile_map_data = PackedByteArray("AAD+//7/EAAAAAUAAAD+////EAAAAAYAAAD+/wAAEAAAAAcAAAD///7/EAABAAUAAAD/////EAABAAYAAAD//wAAEAABAAcAAAAAAP7/EAACAAUAAAAAAP//EAACAAYAAAAAAAAAEAACAAcAAAABAP7/EAADAAUAAAABAP//EAADAAYAAAABAAAAEAADAAcAAAA=")
+tile_set = ExtResource("2_rp0kd")
+
+[node name="Laptop" type="TileMapLayer" parent="VariantBlack" unique_id=1467736288]
+tile_map_data = PackedByteArray("AAAAAP3/BQACAAAAAAAAAP7/BQACAAEAAAABAP3/BQADAAAAAAABAP7/BQADAAEAAAA=")
+tile_set = ExtResource("2_rp0kd")
+
+[node name="VariantWhite" type="Node2D" parent="." unique_id=997927433]
+
+[node name="Desk" type="TileMapLayer" parent="VariantWhite" unique_id=1116373639]
+tile_map_data = PackedByteArray("AAD+//7/EAAEAAUAAAD+////EAAEAAYAAAD+/wAAEAAEAAcAAAD///7/EAAFAAUAAAD/////EAAFAAYAAAD//wAAEAAFAAcAAAAAAP7/EAAGAAUAAAAAAP//EAAGAAYAAAAAAAAAEAAGAAcAAAABAP7/EAAHAAUAAAABAP//EAAHAAYAAAABAAAAEAAHAAcAAAA=")
+tile_set = ExtResource("2_rp0kd")
+
+[node name="Laptop" type="TileMapLayer" parent="VariantWhite" unique_id=1574522408]
+tile_map_data = PackedByteArray("AAAAAP3/BQAGAAAAAAAAAP7/BQAGAAEAAAABAP3/BQAHAAAAAAABAP7/BQAHAAEAAAA=")
+tile_set = ExtResource("2_rp0kd")
+
+[node name="SendMailTask" parent="." unique_id=276509297 instance=ExtResource("3_yndqs")]
+position = Vector2(16, -8)
+task_name = "Send email"
+doing_task = "Sending..."
+mental_damage = 40.0
+work_time = 5.0
+collision_radius = 20

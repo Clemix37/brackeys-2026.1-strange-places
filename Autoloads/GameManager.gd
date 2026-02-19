@@ -35,14 +35,14 @@ func change_scene(path: String, room_name: String) -> void:
 	if is_transitioning: return
 	is_transitioning = true
 	# transition vers fondu noir
-	await _fade_in()
+	await fade_in()
 	# change la scène
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame # juste avant que la première frame se lance
 	current_scene = get_tree().current_scene
 	current_room = room_name
 	# fondu au noir vers la scène que nous venons d'ajouter
-	await _fade_out()
+	await fade_out()
 	is_transitioning = false
 	room_name_changed.emit(current_room)
 
@@ -62,13 +62,13 @@ func _create_fade_layer():
 	fade_layer.add_child(fade_rect)
 
 ## Crée le tween qui supprimera la transparence du fade_rect
-func _fade_in(duration: float = 0.4) -> void:
+func fade_in(duration: float = 0.4) -> void:
 	tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 1.0, duration)
 	await tween.finished
 
 ## Crée le tween qui ajoutera la transparence du fade_rect
-func _fade_out(duration: float = 0.4) -> void:
+func fade_out(duration: float = 0.4) -> void:
 	tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 0.0, duration)
 	await tween.finished

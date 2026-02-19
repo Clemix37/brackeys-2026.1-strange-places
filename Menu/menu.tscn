@@ -43,16 +43,3 @@ text = "Play"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=196520408]
-layout_mode = 2
-
-[node name="OfficeLvlBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=543960207]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Office level"
-
-[node name="BreakRoomLvlBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=350073544]
-unique_name_in_owner = true
-layout_mode = 2
-text = "BreakRoom level"

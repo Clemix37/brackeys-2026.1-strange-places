@@ -24,4 +24,5 @@ func _on_body_exited_office_door(body: Node2D) -> void:
 
 func _process(delta: float) -> void:
 	if player_in_range_door_office and Input.is_action_pressed("interact"):
-		GameManager.change_scene("res://Rooms/Office.tscn", "Office")
+		var main_node = get_tree().current_scene
+		main_node.change_room("res://Rooms/Office.tscn", "Open Space")

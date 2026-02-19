@@ -27,4 +27,5 @@ func _on_body_exited_break_room_door(body: Node2D) -> void:
 
 func _process(delta: float) -> void:
 	if player_face_door_break_room and Input.is_action_pressed("interact"):
-		GameManager.change_scene("res://Rooms/BreakRoom.tscn", "Break room")
+		var main_node = get_tree().current_scene
+		main_node.change_room("res://Rooms/BreakRoom.tscn", "Break Room")

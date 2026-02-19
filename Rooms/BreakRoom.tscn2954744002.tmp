@@ -3,7 +3,23 @@
 [ext_resource type="Script" uid="uid://dbdr6213ihyxr" path="res://Rooms/break_room.gd" id="1_6ahea"]
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="1_7ojjl"]
 [ext_resource type="PackedScene" uid="uid://jbvi70mxxetw" path="res://Characters/player.tscn" id="2_11kil"]
+[ext_resource type="PackedScene" uid="uid://v6g1c7qbtj0r" path="res://UI/hud.tscn" id="3_t1djg"]
 [ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea.tscn" id="4_i8m43"]
+[ext_resource type="Shader" uid="uid://bd5pd7ihcyxxv" path="res://Shaders/Stress.gdshader" id="6_s1rhr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqbap"]
+shader = ExtResource("6_s1rhr")
+shader_parameter/processed = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.5000000712500001
+shader_parameter/pixel_size = 1.0
+shader_parameter/resolution = Vector2(400, 400)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ahea"]
 size = Vector2(32, 26)
@@ -32,6 +48,20 @@ tile_set = ExtResource("1_7ojjl")
 z_index = 99
 position = Vector2(432, 238)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1763206098]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=461956392]
+material = SubResource("ShaderMaterial_vqbap")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HUD" parent="." unique_id=166357684 instance=ExtResource("3_t1djg")]
+
 [node name="OfficeDoorArea" type="Area2D" parent="." unique_id=227572310]
 unique_name_in_owner = true
 position = Vector2(528, 10)
@@ -45,6 +75,14 @@ unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 23.0
 text = "[E] Enter Office"
+
+[node name="SendMailTask" parent="." unique_id=276509297 instance=ExtResource("4_i8m43")]
+position = Vector2(312, 382)
+task_name = "Send email"
+doing_task = "Sending..."
+mental_damage = 40.0
+work_time = 5.0
+collision_radius = 20
 
 [node name="DrinkCoffeeTask" parent="." unique_id=692582680 instance=ExtResource("4_i8m43")]
 position = Vector2(231, 234)

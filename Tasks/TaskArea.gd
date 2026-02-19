@@ -57,8 +57,19 @@ func toggle_interaction_label_visibility(visible: bool = true) -> void:
 func start_task():
 	working = true
 	interact_label.text = doing_task
-	await get_tree().create_timer(work_time).timeout
-	GameManager.set_mental_health(GameManager.mental_health - mental_damage + mental_restore)
+	
+	var duration = work_time
+	var tick_rate = 0.1
+	var elapsed = 0.0
+	
+	var total_damage = mental_damage - mental_restore
+	var damage_per_tick = total_damage * tick_rate / duration
+	while elapsed < duration:
+		await get_tree().create_timer(tick_rate).timeout
+		GameManager.set_mental_health(GameManager.mental_health - damage_per_tick)
+		elapsed += tick_rate
+		
+	
 	emit_signal("task_completed", mental_damage)
 	reset_interaction_label()
 	working = false

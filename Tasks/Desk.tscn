@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://d28fvif4erwup"]
+
+[ext_resource type="Script" uid="uid://cjjjf1ddo3ghm" path="res://Tasks/desk.gd" id="1_aok4n"]
+[ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="2_4otko"]
+
+[node name="Desk" type="Node2D" unique_id=1798775678]
+script = ExtResource("1_aok4n")
+
+[node name="VariantBlack" type="Node2D" parent="." unique_id=1869280117]
+
+[node name="Desk" type="TileMapLayer" parent="VariantBlack" unique_id=2081187334]
+tile_map_data = PackedByteArray("AAD+//7/EAAAAAUAAAD+////EAAAAAYAAAD+/wAAEAAAAAcAAAD///7/EAABAAUAAAD/////EAABAAYAAAD//wAAEAABAAcAAAAAAP7/EAACAAUAAAAAAP//EAACAAYAAAAAAAAAEAACAAcAAAABAP7/EAADAAUAAAABAP//EAADAAYAAAABAAAAEAADAAcAAAA=")
+tile_set = ExtResource("2_4otko")
+
+[node name="Laptop" type="TileMapLayer" parent="VariantBlack" unique_id=1467736288]
+tile_map_data = PackedByteArray("AAAAAP3/BQAAAAAAAAAAAP7/BQAAAAEAAAABAP3/BQABAAAAAAABAP7/BQABAAEAAAA=")
+tile_set = ExtResource("2_4otko")
+
+[node name="VariantWhite" type="Node2D" parent="." unique_id=997927433]
+
+[node name="Desk" type="TileMapLayer" parent="VariantWhite" unique_id=1116373639]
+tile_map_data = PackedByteArray("AAD+//7/EAAEAAUAAAD+////EAAEAAYAAAD+/wAAEAAEAAcAAAD///7/EAAFAAUAAAD/////EAAFAAYAAAD//wAAEAAFAAcAAAAAAP7/EAAGAAUAAAAAAP//EAAGAAYAAAAAAAAAEAAGAAcAAAABAP7/EAAHAAUAAAABAP//EAAHAAYAAAABAAAAEAAHAAcAAAA=")
+tile_set = ExtResource("2_4otko")
+
+[node name="Laptop" type="TileMapLayer" parent="VariantWhite" unique_id=1574522408]
+tile_map_data = PackedByteArray("AAAAAP3/BQAEAAAAAAAAAP7/BQAEAAEAAAABAP3/BQAFAAAAAAABAP7/BQAFAAEAAAA=")
+tile_set = ExtResource("2_4otko")

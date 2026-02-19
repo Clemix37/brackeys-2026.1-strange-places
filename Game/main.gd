@@ -9,10 +9,9 @@ var current_room: Node = null
 var is_transitioning = false
 
 func _ready() -> void:
-	load_room("res://Rooms/BreakRoom.tscn")
+	load_room("res://Rooms/Office.tscn")
 	
 func change_room(path: String, room_name: String):
-	print("change room to " + room_name)
 	if is_transitioning: return
 	is_transitioning = true
 	await GameManager.fade_in()

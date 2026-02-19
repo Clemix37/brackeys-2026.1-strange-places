@@ -607,7 +607,7 @@ animations = [{
 script = ExtResource("1_5mj4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603678748]
-position = Vector2(0, 13.5)
+position = Vector2(-1, -20)
 shape = SubResource("RectangleShape2D_ywxx0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1138084225]
@@ -615,6 +615,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=576371632]
+position = Vector2(-1, -32)
 scale = Vector2(1.140625, 1.140625)
 sprite_frames = SubResource("SpriteFrames_yeqoa")
 animation = &"run_up"
