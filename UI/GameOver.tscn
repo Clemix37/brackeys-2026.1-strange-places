@@ -15,13 +15,19 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1167885600]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1913702547]
 layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
 
-[node name="GameOverLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=807447924]
-custom_minimum_size = Vector2(850, 150)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1175265670]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="GameOverLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer" unique_id=807447924]
+custom_minimum_size = Vector2(950, 150)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 45
 theme_override_font_sizes/bold_font_size = 45
@@ -30,21 +36,33 @@ theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/mono_font_size = 45
 bbcode_enabled = true
 text = "THANK YOU FOR YOUR INVESTMENT 
-AND THE WORK [i]NOT[/i] DONE THOUGH..."
+AND THE WORK [i]NOT[/i] DONE YET THOUGH..."
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1385735588]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=55859909]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=184811829]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=2052688122]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/MarginContainer" unique_id=1385735588]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="TryAgainBtn" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=862851196]
+[node name="TryAgainBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=862851196]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Try again"
 
-[node name="MenuBtn" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1320836390]
+[node name="MenuBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1320836390]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
