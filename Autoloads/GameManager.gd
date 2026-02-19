@@ -3,6 +3,7 @@ extends Node
 # Signals
 signal mental_health_changed(mental_health_value: float)
 signal room_name_changed(room_name: String)
+signal is_game_over_called
 
 # Variables
 var mental_health: float = 100.0
@@ -10,6 +11,7 @@ var current_scene: Node
 var current_room: String
 # Game state variables
 var is_paused: bool = false
+var is_game_over: bool = false
 # Transition variables
 var is_transitioning: bool = false
 var fade_layer: CanvasLayer
@@ -18,8 +20,7 @@ var tween: Tween
 
 ## Au chargement du script
 func _ready() -> void:
-	current_scene = get_tree().current_scene
-	current_room = ""
+	reset_game()
 	_create_fade_layer() # seront utilisées plus tard pour les transitions
 
 # Mental health
@@ -92,3 +93,14 @@ func resume_game() -> void:
 ## Ferme le jeu
 func quit_game() -> void:
 	get_tree().quit()
+
+## Resets the game values
+func reset_game() -> void:
+	current_scene = get_tree().current_scene
+	current_room = ""
+	set_mental_health(100.0) # Will reset the shader if connected
+	is_paused = false
+
+func set_is_game_over() -> void:
+	is_game_over = true
+	is_game_over_called.emit()

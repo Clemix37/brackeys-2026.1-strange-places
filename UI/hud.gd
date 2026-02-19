@@ -6,12 +6,14 @@ extends CanvasLayer
 @onready var stress_mat: ShaderMaterial = get_tree().get_current_scene().get_node("CanvasLayer/ColorRect").material
 
 func _ready() -> void:
-	GameManager.mental_health_changed.connect(_update_mental_health_hud)
+	GameManager.mental_health_changed.connect(update_mental_health_hud)
 	GameManager.room_name_changed.connect(change_room_name)
-	update_tasks_lists()
 	TaskManager.updated_tasks.connect(update_tasks_lists)
+	update_tasks_lists()
+	# If not called, the shader updates strangely when first task is done
+	update_mental_health_hud(GameManager.mental_health)
 
-func _update_mental_health_hud(mental_health: float) -> void:
+func update_mental_health_hud(mental_health: float) -> void:
 	mental_health_bar.value = mental_health
 	_update_mental_health_fill_color()
 	stress_mat.set_shader_parameter("radius", shader_radius())

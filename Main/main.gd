@@ -4,13 +4,15 @@ signal room_name_changed(room_name: String)
 
 @onready var room_container: Node2D = %RoomContainer
 @onready var hud: CanvasLayer = %HUD
+@onready var game_over: CanvasLayer = %GameOver
 
 var current_room: Node = null
 var is_transitioning = false
 
 func _ready() -> void:
-    # Loading office by default
+	# Loading office by default
 	load_room("uid://srpdj5vapkv3")
+	GameManager.mental_health_changed.connect(check_for_game_over)
 	
 func change_room(path: String, room_name: String):
 	if is_transitioning: return
@@ -27,3 +29,9 @@ func load_room(path: String):
 	var room_scene = load(path) as PackedScene
 	current_room = room_scene.instantiate()
 	room_container.add_child(current_room)
+
+func check_for_game_over(mental_health: float) -> void:
+	if mental_health > 0.0: return
+	GameManager.set_is_game_over()
+	game_over.visible = true
+	hud.visible = false

@@ -40,4 +40,5 @@ Assets:
 
 Bugs:
 
-- [ ] In break room can walk on tables
+- [ ] In break room can walk on ground objects
+- [ ] Player is moving when game over...

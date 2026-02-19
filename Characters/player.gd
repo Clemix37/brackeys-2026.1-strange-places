@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+var lastDir = Vector2.ZERO
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
-
-var lastDir = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	var dir = Vector2.ZERO

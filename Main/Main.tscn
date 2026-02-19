@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://vnucto88mppj"]
 
 [ext_resource type="Shader" uid="uid://bd5pd7ihcyxxv" path="res://Shaders/Stress.gdshader" id="1_lv82p"]
-[ext_resource type="Script" uid="uid://uigkkw0jvuji" path="res://Game/main.gd" id="1_w1egk"]
+[ext_resource type="Script" uid="uid://uigkkw0jvuji" path="res://Main/main.gd" id="1_w1egk"]
 [ext_resource type="PackedScene" uid="uid://v6g1c7qbtj0r" path="res://UI/hud.tscn" id="2_w1egk"]
+[ext_resource type="PackedScene" uid="uid://byv5ilwluy5t6" path="res://UI/GameOver.tscn" id="4_ps1la"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rchnd"]
 shader = ExtResource("1_lv82p")
@@ -18,7 +19,7 @@ shader_parameter/invert = true
 shader_parameter/falloff = 2.5
 shader_parameter/color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D" unique_id=1400401687]
+[node name="Main" type="Node2D" unique_id=1400401687]
 script = ExtResource("1_w1egk")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=1093986711]
@@ -39,3 +40,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HUD" parent="." unique_id=1452111076 instance=ExtResource("2_w1egk")]
 unique_name_in_owner = true
+
+[node name="GameOver" parent="." unique_id=610543787 instance=ExtResource("4_ps1la")]
+unique_name_in_owner = true
+visible = false

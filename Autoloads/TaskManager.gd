@@ -42,3 +42,8 @@ func _on_task_completed(task: Task):
 	if task.next:
 		tasks[task.next.id] = task.next
 	updated_tasks.emit()
+
+## Resets the current tasks
+func reset_tasks() -> void:
+	tasks = {}
+	create_tasks()

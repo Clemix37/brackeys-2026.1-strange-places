@@ -11,4 +11,4 @@ func _ready() -> void:
 
 ## Transitionne vers la scène de jeu
 func play_game() -> void:
-	GameManager.change_scene("res://Game/Main.tscn", "Open Space")
+	GameManager.change_scene("uid://vnucto88mppj", "Open Space")
