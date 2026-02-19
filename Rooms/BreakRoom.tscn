@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="1_7ojjl"]
 [ext_resource type="PackedScene" uid="uid://jbvi70mxxetw" path="res://Characters/player.tscn" id="2_11kil"]
 [ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea.tscn" id="4_i8m43"]
+[ext_resource type="Script" uid="uid://bisbccdvhqjcn" path="res://Tasks/pickup_docs.gd" id="5_6ahea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ahea"]
 size = Vector2(32, 26)
@@ -74,4 +75,15 @@ position = Vector2(50, 177)
 task_name = "Scan document"
 doing_task = "Scanning..."
 mental_damage = 10.0
+collision_radius = 45
+
+[node name="PickupDocs" type="Node2D" parent="." unique_id=1304856026]
+script = ExtResource("5_6ahea")
+
+[node name="PickupDocsTask" parent="PickupDocs" unique_id=276509297 instance=ExtResource("4_i8m43")]
+position = Vector2(53, 259)
+task_name = "Pick up documents"
+doing_task = "Picking up"
+mental_damage = 5.0
+work_time = 1.0
 collision_radius = 45
