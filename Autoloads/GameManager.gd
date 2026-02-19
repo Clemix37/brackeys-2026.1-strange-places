@@ -1,11 +1,11 @@
 extends Node
 
 # Signals
-signal mental_health_changed(mental_health_value: int)
+signal mental_health_changed(mental_health_value: float)
 signal room_name_changed(room_name: String)
 
 # Variables
-var mental_health: int = 100
+var mental_health: float = 100.0
 var current_scene: Node
 var current_room: String
 # Game state variables
@@ -23,9 +23,9 @@ func _ready() -> void:
 	_create_fade_layer() # seront utilisées plus tard pour les transitions
 
 # Mental health
-func set_mental_health(value: int) -> void:
-	# Not less than -100 (full heal), not more than 100
-	mental_health = clamp(value, -100, 100)
+func set_mental_health(value: float) -> void:
+	# Not less than 0 (died), not more than 100 (full heal)
+	mental_health = clamp(value, 0, 100)
 	mental_health_changed.emit(mental_health)
 
 # Scene transitions

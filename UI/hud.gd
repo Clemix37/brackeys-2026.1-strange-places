@@ -11,7 +11,7 @@ func _ready() -> void:
 	update_tasks_lists()
 	TaskManager.updated_tasks.connect(update_tasks_lists)
 
-func _update_mental_health_hud(mental_health: int) -> void:
+func _update_mental_health_hud(mental_health: float) -> void:
 	mental_health_bar.value = mental_health
 	_update_mental_health_fill_color()
 	stress_mat.set_shader_parameter("radius", shader_radius())
@@ -52,7 +52,6 @@ func shader_radius() -> float:
 	return 0.2 + mental_health_bar.value / 100.
 
 func change_room_name(room_name: String) -> void:
-	print(room_name)
 	current_room_label.text = room_name
 	current_room_label.visible = true
 	await get_tree().create_timer(4.0).timeout

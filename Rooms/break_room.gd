@@ -9,14 +9,17 @@ func _ready() -> void:
 	office_door_area.body_entered.connect(_on_body_entered_office_door)
 	office_door_area.body_exited.connect(_on_body_exited_office_door)
 
+## Changes the visibility of the label to enter the office
 func toggle_enter_office_label_visibility(to_be_visible: bool = true) -> void:
 	enter_office_label.visible = to_be_visible
 
+## When a body enters the office doors
 func _on_body_entered_office_door(body: Node2D) -> void:
 	if body.name != "Player": return
 	player_in_range_door_office = true
 	toggle_enter_office_label_visibility(true)
 
+## When a body exits the office doors
 func _on_body_exited_office_door(body: Node2D) -> void:
 	if body.name != "Player": return
 	player_in_range_door_office = false
@@ -25,4 +28,5 @@ func _on_body_exited_office_door(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if player_in_range_door_office and Input.is_action_pressed("interact"):
 		var main_node = get_tree().current_scene
-		main_node.change_room("res://Rooms/Office.tscn", "Open Space")
+		# Office room
+		main_node.change_room("uid://srpdj5vapkv3", "Open Space")

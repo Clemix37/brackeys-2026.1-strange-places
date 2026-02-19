@@ -8,7 +8,7 @@
 shader = ExtResource("1_lv82p")
 shader_parameter/processed = 0.0
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/radius = 1.5000000712500001
+shader_parameter/radius = 1.50000007125
 shader_parameter/pixel_size = 1.0
 shader_parameter/resolution = Vector2(400, 400)
 shader_parameter/dither_offset = Vector2(2, 0)
@@ -21,7 +21,8 @@ shader_parameter/color = Color(0, 0, 0, 1)
 [node name="Node2D" type="Node2D" unique_id=1400401687]
 script = ExtResource("1_w1egk")
 
-[node name="RoomContainer" type="Node" parent="." unique_id=782551394]
+[node name="RoomContainer" type="Node2D" parent="." unique_id=1093986711]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=472013515]
 
@@ -37,3 +38,4 @@ size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="HUD" parent="." unique_id=1452111076 instance=ExtResource("2_w1egk")]
+unique_name_in_owner = true

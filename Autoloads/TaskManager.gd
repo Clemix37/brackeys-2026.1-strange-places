@@ -42,5 +42,3 @@ func _on_task_completed(task: Task):
 	if task.next:
 		tasks[task.next.id] = task.next
 	updated_tasks.emit()
-	
-	

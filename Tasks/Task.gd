@@ -24,6 +24,3 @@ static func init(id: String, name: String, working: String, mental_damage: float
 func complete() -> void:
 	completed = true
 	task_completed.emit(self)
-
-func affect_mental_health() -> void:
-	GameManager.set_mental_health(GameManager.mental_health - mental_damage)

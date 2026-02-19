@@ -2,14 +2,15 @@ extends Node2D
 
 signal room_name_changed(room_name: String)
 
-@onready var room_container := $RoomContainer
-@onready var hud := $HUD
+@onready var room_container: Node2D = %RoomContainer
+@onready var hud: CanvasLayer = %HUD
 
 var current_room: Node = null
 var is_transitioning = false
 
 func _ready() -> void:
-	load_room("res://Rooms/Office.tscn")
+    # Loading office by default
+	load_room("uid://srpdj5vapkv3")
 	
 func change_room(path: String, room_name: String):
 	if is_transitioning: return

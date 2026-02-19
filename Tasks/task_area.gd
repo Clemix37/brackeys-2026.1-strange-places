@@ -31,7 +31,6 @@ func _ready():
 
 ## When a body enters the area 
 func _on_body_entered(body):
-	print(body.name)
 	if body.name == "Player":
 		player_in_range = true
 		toggle_interaction_label_visibility(true)
@@ -62,7 +61,7 @@ func start_task():
 	var tick_rate = 0.1
 	var elapsed = 0.0
 	
-	var damage_per_tick = mental_damage * tick_rate / duration
+	var damage_per_tick: float = mental_damage * tick_rate / duration
 	while elapsed < duration:
 		await get_tree().create_timer(tick_rate).timeout
 		GameManager.set_mental_health(GameManager.mental_health - damage_per_tick)
@@ -72,6 +71,7 @@ func start_task():
 	reset_interaction_label()
 	working = false
 
+## Only for desks
 func from_task(task: Task):
 	task_name = task.name
 	doing_task = task.working

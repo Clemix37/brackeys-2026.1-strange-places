@@ -615,6 +615,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=576371632]
+unique_name_in_owner = true
 position = Vector2(0, -31)
 scale = Vector2(1.140625, 1.140625)
 sprite_frames = SubResource("SpriteFrames_yeqoa")

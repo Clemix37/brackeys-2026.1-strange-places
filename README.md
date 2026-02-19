@@ -11,12 +11,13 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 - [x] Can interact with around objects
 - [ ] When eating fruit from the fruit basket, restore some mental health
 - [ ] When drinking café, restores a bit mental health but stresses out the player so the mental health lowers faster for a short period of time
+- [x] When task is done, mark it as done on tasks lists
 
 Tasks:
 
 - [x] Add task system
-- [X] Add tasks lists
-- [X] Lower mental health depending on the task complexity
+- [x] Add tasks lists
+- [x] Lower mental health depending on the task complexity
 
 HUD:
 
@@ -26,13 +27,17 @@ HUD:
 Break Room:
 
 - [x] Borders and collisions
-- [X] Navigate to Office
+- [x] Navigate to Office
 
 Office:
 
 - [x] Borders and collisions
-- [X] Navigate to Break room
+- [x] Navigate to Break room
 
 Assets:
 
 - [ ] Create each asset in pixel art style to be placed on tile map layers
+
+Bugs:
+
+- [ ] In break room can walk on tables
