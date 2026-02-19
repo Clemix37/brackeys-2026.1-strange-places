@@ -30,7 +30,7 @@ Break Room:
 
 Office:
 
-- [ ] Borders and collisions
+- [x] Borders and collisions
 - [X] Navigate to Break room
 
 Assets:

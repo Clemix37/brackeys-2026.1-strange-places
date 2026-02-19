@@ -27,7 +27,7 @@ tile_map_data = PackedByteArray("AAAAABMABAAIAAIAAAAAABIABAAIAAEAAAAAABEABAAIAAE
 tile_set = ExtResource("1_3o15l")
 
 [node name="GroundObjects" type="TileMapLayer" parent="Tiles" unique_id=1229204679]
-tile_map_data = PackedByteArray("AAAbAP3/HgAEAAAAAAAbAP7/HgAEAAEAAAAbAP//HgAEAAIAAAAbAAAAHgAEAAMAAAAbAAEAHgAEAAQAAAAcAP3/HgAFAAAAAAAcAP7/HgAFAAEAAAAcAP//HgAFAAIAAAAcAAAAHgAFAAMAAAAcAAEAHgAFAAQAAAAAAP3/HgAEAAAAAAAAAP7/HgAEAAEAAAAAAP//HgAEAAIAAAAAAAAAHgAEAAMAAAAAAAEAHgAEAAQAAAABAP3/HgAFAAAAAAABAP7/HgAFAAEAAAABAP//HgAFAAIAAAABAAAAHgAFAAMAAAABAAEAHgAFAAQAAAAAAAIAHgAEAAUAAAABAAIAHgAFAAUAAAAbAAIAHgAEAAUAAAAcAAIAHgAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAAbAP3/HgAEAAAAAAAbAP7/HgAEAAEAAAAbAP//HgAEAAIAAAAbAAAAHgAEAAMAAAAbAAEAHgAEAAQAAAAcAP3/HgAFAAAAAAAcAP7/HgAFAAEAAAAcAP//HgAFAAIAAAAcAAAAHgAFAAMAAAAcAAEAHgAFAAQAAAAAAP3/HgAEAAAAAAAAAP7/HgAEAAEAAAAAAP//HgAEAAIAAAAAAAAAHgAEAAMAAAAAAAEAHgAEAAQAAAABAP3/HgAFAAAAAAABAP7/HgAFAAEAAAABAP//HgAFAAIAAAABAAAAHgAFAAMAAAABAAEAHgAFAAQAAAAAAAIAHgAEAAUAAAABAAIAHgAFAAUAAAA=")
 tile_set = ExtResource("1_3o15l")
 
 [node name="OverGroundObjects" type="TileMapLayer" parent="Tiles" unique_id=1686018961]
@@ -35,6 +35,7 @@ tile_map_data = PackedByteArray("AAARAP3/HQAIAAAAAAARAP7/HQAIAAEAAAASAP3/HQAJAAA
 tile_set = ExtResource("1_3o15l")
 
 [node name="Door" type="Node2D" parent="." unique_id=1493914376]
+y_sort_enabled = true
 position = Vector2(51, 16)
 
 [node name="Frame" type="TileMapLayer" parent="Door" unique_id=5229389]
@@ -55,10 +56,10 @@ shape = SubResource("RectangleShape2D_846vk")
 
 [node name="EnterBreakRoomLabel" type="Label" parent="Door/BreakRoomDoorArea" unique_id=421148457]
 unique_name_in_owner = true
-offset_left = -502.0
-offset_top = 6.0
-offset_right = -338.0
-offset_bottom = 29.0
+offset_left = -501.0
+offset_top = -7.0
+offset_right = -337.0
+offset_bottom = 16.0
 text = "[E] Enter Break Room"
 metadata/_edit_use_anchors_ = true
 
@@ -103,5 +104,4 @@ position = Vector2(338, 258)
 position = Vector2(434, 258)
 
 [node name="Player" parent="." unique_id=570324256 instance=ExtResource("2_kprng")]
-y_sort_enabled = true
 position = Vector2(52, 55)
