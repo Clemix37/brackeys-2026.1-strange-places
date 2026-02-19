@@ -40,5 +40,5 @@ func add_task(task: Task):
 func _on_task_completed(task: Task):
 	tasks.erase(task.id)
 	if task.next:
-		tasks[task.next.id] = task.next
+		add_task(task.next)
 	updated_tasks.emit()
