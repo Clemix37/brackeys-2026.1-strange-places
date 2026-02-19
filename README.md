@@ -12,6 +12,10 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 - [ ] When eating fruit from the fruit basket, restore some mental health
 - [ ] When drinking café, restores a bit mental health but stresses out the player so the mental health lowers faster for a short period of time
 - [x] When task is done, mark it as done on tasks lists
+- [ ] add rotated little funny text on game name menu
+- [ ] description on the game menu ?
+- [ ] bg of the main menu
+- [ ] rich game name label
 
 Tasks:
 
