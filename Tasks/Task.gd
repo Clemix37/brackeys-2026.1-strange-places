@@ -3,23 +3,27 @@ class_name Task
 
 var id: String
 var name: String
-var mental_damage: float
-var mental_restore: float
+var working: String # displayed text when doing task
+var mental_damage: float # use negative value for restoring sanity
 var duration: float
 var completed: bool
+var next: Task
 
-static func init(new_id: String, new_name: String, new_mental_damage: float = 10.0, new_mental_restore: float = 0.0, new_duration: float = 2.0, is_completed: bool = false) -> Task:
+signal task_completed(task: Task)
+
+static func init(id: String, name: String, working: String, mental_damage: float = 10.0, duration: float = 2.0, next: Task = null) -> Task:
 	var new = Task.new()
-	new.id = new_id
-	new.name = new_name
-	new.mental_damage = new_mental_damage
-	new.mental_restore = new_mental_restore
-	new.duration = new_duration
-	new.completed = is_completed
+	new.id = id
+	new.name = name
+	new.mental_damage = mental_damage
+	new.duration = duration
+	new.next = next
+	new.completed = false
 	return new
 
-func set_as_complete() -> void:
+func complete() -> void:
 	completed = true
+	task_completed.emit(self)
 
 func affect_mental_health() -> void:
-	GameManager.set_mental_health(GameManager.mental_health - mental_damage + mental_restore)
+	GameManager.set_mental_health(GameManager.mental_health - mental_damage)

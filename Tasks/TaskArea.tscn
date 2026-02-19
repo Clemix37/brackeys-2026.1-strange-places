@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kw6qyfk2wgrd"]
 
-[ext_resource type="Script" uid="uid://cp8qy2642eu30" path="res://Tasks/TaskArea.gd" id="1_hmfsm"]
+[ext_resource type="Script" uid="uid://cp8qy2642eu30" path="res://Tasks/task_area.gd" id="1_hmfsm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikqyn"]
 radius = 15.0
@@ -8,6 +8,7 @@ radius = 15.0
 [node name="TaskArea" type="Area2D" unique_id=276509297]
 z_index = 150
 script = ExtResource("1_hmfsm")
+mental_damage = -10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1482564647]
 shape = SubResource("CircleShape2D_ikqyn")

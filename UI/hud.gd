@@ -9,6 +9,7 @@ func _ready() -> void:
 	GameManager.mental_health_changed.connect(_update_mental_health_hud)
 	GameManager.room_name_changed.connect(change_room_name)
 	update_tasks_lists()
+	TaskManager.updated_tasks.connect(update_tasks_lists)
 
 func _update_mental_health_hud(mental_health: int) -> void:
 	mental_health_bar.value = mental_health
@@ -58,8 +59,10 @@ func change_room_name(room_name: String) -> void:
 	current_room_label.visible = false
 
 func update_tasks_lists() -> void:
-	tasks_lists.text = "[b][i]Tasks[/i][/b]"
-	var tasks_keys = TaskManager.tasks.keys()
-	for task_key in tasks_keys:
+	var content := "[b][i]Tasks[/i][/b]"
+
+	for task_key in TaskManager.tasks.keys():
 		var task: Task = TaskManager.tasks[task_key]
-		tasks_lists.append_text("\n- " + task.name)
+		content += "\n- " + task.name
+
+	tasks_lists.text = content

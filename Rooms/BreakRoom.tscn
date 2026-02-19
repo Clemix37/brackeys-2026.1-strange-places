@@ -67,11 +67,11 @@ position = Vector2(52, 61)
 position = Vector2(207, 29)
 task_name = "Drink"
 doing_task = "Drinking..."
-mental_damage = 0.0
-mental_restore = 50.0
+can_be_done_multiple_times = true
 
 [node name="ScanDocTask" parent="." unique_id=1403170239 instance=ExtResource("4_i8m43")]
 position = Vector2(50, 177)
 task_name = "Scan document"
 doing_task = "Scanning..."
+mental_damage = 10.0
 collision_radius = 45

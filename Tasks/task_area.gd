@@ -1,10 +1,10 @@
 extends Area2D
+class_name TaskArea
 
 # Export variables
 @export var task_name: String = "Work"
 @export var doing_task: String = "Working..."
-@export var mental_damage: float = 10.0 # damage mental health
-@export var mental_restore: float = 0.0 # restores mental health
+@export var mental_damage: float = 10.0 # damage mental health; use negative value to restore
 @export var work_time: float = 2.0
 @export var can_be_done_multiple_times: bool = false
 @export var collision_radius: int = 15
@@ -62,14 +62,18 @@ func start_task():
 	var tick_rate = 0.1
 	var elapsed = 0.0
 	
-	var total_damage = mental_damage - mental_restore
-	var damage_per_tick = total_damage * tick_rate / duration
+	var damage_per_tick = mental_damage * tick_rate / duration
 	while elapsed < duration:
 		await get_tree().create_timer(tick_rate).timeout
 		GameManager.set_mental_health(GameManager.mental_health - damage_per_tick)
 		elapsed += tick_rate
 		
-	
-	emit_signal("task_completed", mental_damage)
+	task_completed.emit(mental_damage)
 	reset_interaction_label()
 	working = false
+
+func from_task(task: Task):
+	task_name = task.name
+	doing_task = task.working
+	mental_damage = task.mental_damage
+	work_time = task.duration

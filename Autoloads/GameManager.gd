@@ -24,8 +24,8 @@ func _ready() -> void:
 
 # Mental health
 func set_mental_health(value: int) -> void:
-	# Not less than 0, not more than 100
-	mental_health = clamp(value, 0, 100)
+	# Not less than -100 (full heal), not more than 100
+	mental_health = clamp(value, -100, 100)
 	mental_health_changed.emit(mental_health)
 
 # Scene transitions
