@@ -44,14 +44,21 @@ theme_override_constants/margin_bottom = 20
 
 [node name="MentalHealthBar" type="ProgressBar" parent="MarginContainer" unique_id=2114831901]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/outline_size = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_levl0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ne75i")
 value = 100.0
-show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=695358833]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer" unique_id=822722265]
+layout_mode = 2
+text = "MENTAL HEALTH"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1919809614]
 anchors_preset = 15
@@ -67,7 +74,7 @@ size_flags_horizontal = 3
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/VBoxContainer" unique_id=1860393998]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 

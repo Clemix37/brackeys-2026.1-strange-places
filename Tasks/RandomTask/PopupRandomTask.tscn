@@ -7,7 +7,7 @@
 texture = ExtResource("2_0c8yh")
 
 [node name="PopupRandomTask" type="CanvasLayer" unique_id=1482498218]
-layer = 5
+layer = 3
 script = ExtResource("1_8kqxl")
 
 [node name="EventPopup" type="Control" parent="." unique_id=1271284583]
