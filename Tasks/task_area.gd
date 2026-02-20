@@ -10,7 +10,7 @@ class_name TaskArea
 @onready var interact_label: Label = $InteractLabel
 
 # Signals
-signal task_completed(damage)
+signal task_completed(damage: float)
 
 # Variables
 var player_in_range = false
@@ -31,13 +31,13 @@ func _ready():
 
 ## When a body enters the area 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" && task:
 		player_in_range = true
 		toggle_interaction_label_visibility(true)
 
 ## When a body exits the area
 func _on_body_exited(body):
-	if body.name == "Player":
+	if body.name == "Player" && task:
 		player_in_range = false
 		toggle_interaction_label_visibility(false)
 
@@ -47,6 +47,7 @@ func _process(delta):
 
 ## Display the command + task_name on the interaction label
 func reset_interaction_label():
+	if !task: return
 	interact_label.text = "[E] " + task.name
 
 ## Changes the visibility property of the interaction label
@@ -67,8 +68,7 @@ func start_task():
 		GameManager.set_mental_health(GameManager.mental_health - damage_per_tick)
 		elapsed += tick_rate
 	
-	if !task.next:
-		task.emit(task.mental_damage)
+	task_completed.emit(task.mental_damage)
 	reset_interaction_label()
 	working = false
 

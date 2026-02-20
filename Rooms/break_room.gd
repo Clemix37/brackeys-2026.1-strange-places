@@ -35,6 +35,6 @@ func _process(delta: float) -> void:
 		# Office room
 		main_node.change_room("uid://srpdj5vapkv3", "Open Space")
 
-func set_scan_doc_complete() -> void:
+func set_scan_doc_complete(damage: float) -> void:
 	var task = TaskManager.get_task_by_id(TaskManager.TasksIds.SCAN_DOC)
 	if task: task.complete()
