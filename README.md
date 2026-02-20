@@ -11,8 +11,8 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 - [ ] add rotated little funny text on game name menu
 - [ ] description on the game menu ?
 - [ ] bg of the main menu
-- [ ] rich game name label
-- [ ] random events with warning flashed on screen (improvised meeting)
+- [X] rich game name label
+- [x] random events with warning flashed on screen (improvised meeting)
 - [ ] new deadline for project...
 
 Tasks:
@@ -28,6 +28,6 @@ HUD:
 
 Bugs:
 
-- [ ] In break room can walk on ground objects
 - [x] Player is moving when game over...
 - [ ] can navigate bewteen rooms when task not finished
+- [ ] Game over screen buttons not working when clicking

@@ -88,6 +88,7 @@ func get_description_of_task_by_id(id_task: String) -> String:
 func reset_tasks() -> void:
 	tasks = {}
 	visible_tasks = {}
+	random_event_tasks = {}
 	create_tasks()
 
 ## Set a task that is not currently visible as visible

@@ -27,8 +27,9 @@ layout_mode = 2
 theme_override_constants/margin_top = 100
 
 [node name="GameOverLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer" unique_id=807447924]
-custom_minimum_size = Vector2(950, 150)
+custom_minimum_size = Vector2(1000, 200)
 layout_mode = 2
+tooltip_text = "You're the noob"
 theme_override_font_sizes/normal_font_size = 45
 theme_override_font_sizes/bold_font_size = 45
 theme_override_font_sizes/bold_italics_font_size = 45
@@ -37,6 +38,7 @@ theme_override_font_sizes/mono_font_size = 45
 bbcode_enabled = true
 text = "THANK YOU FOR YOUR INVESTMENT 
 AND THE WORK [i]NOT[/i] DONE YET THOUGH..."
+horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=55859909]
 layout_mode = 2

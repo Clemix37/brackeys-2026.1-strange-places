@@ -6,6 +6,7 @@ var lastDir = Vector2.ZERO
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	if !GameManager.player_can_move: return
 	var dir = Vector2.ZERO
 	
 	var isGoingRight: bool = Input.is_action_pressed("move_right")

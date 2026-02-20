@@ -11,14 +11,14 @@ var next: Task
 
 signal task_completed(task: Task)
 
-static func init(id: String, name: String, working: String, mental_damage: float = 10.0, duration: float = 2.0, next: Task = null) -> Task:
+static func init(task_id: String, task_name: String, working: String, task_mental_damage: float = 10.0, task_duration: float = 2.0, next_task: Task = null) -> Task:
 	var new = Task.new()
-	new.id = id
-	new.name = name
+	new.id = task_id
+	new.name = task_name
 	new.working_msg = working
-	new.mental_damage = mental_damage
-	new.duration = duration
-	new.next = next
+	new.mental_damage = task_mental_damage
+	new.duration = task_duration
+	new.next = next_task
 	new.completed = false
 	return new
 

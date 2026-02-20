@@ -41,7 +41,7 @@ func _on_body_exited(body):
 		player_in_range = false
 		toggle_interaction_label_visibility(false)
 
-func _process(delta):
+func _process(_delta):
 	if player_in_range and Input.is_action_just_pressed("interact") and not working and !task.completed:
 		start_task()
 
@@ -51,10 +51,11 @@ func reset_interaction_label():
 	interact_label.text = "[E] " + task.name
 
 ## Changes the visibility property of the interaction label
-func toggle_interaction_label_visibility(visible: bool = true) -> void:
-	interact_label.visible = visible
+func toggle_interaction_label_visibility(is_label_visible: bool = true) -> void:
+	interact_label.visible = is_label_visible
 
 func start_task():
+	GameManager.player_can_move = false
 	working = true
 	interact_label.text = task.working_msg
 	
@@ -71,8 +72,9 @@ func start_task():
 	task_completed.emit(task.mental_damage)
 	reset_interaction_label()
 	working = false
+	GameManager.player_can_move = true
 
 ## Only for desks
-func from_task(from_task: Task):
-	task_id = from_task.id
-	task = from_task
+func from_task(from_this_task: Task):
+	task_id = from_this_task.id
+	task = from_this_task

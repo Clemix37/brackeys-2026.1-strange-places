@@ -12,6 +12,7 @@ var current_room: String
 # Game state variables
 var is_paused: bool = false
 var is_game_over: bool = false
+var player_can_move: bool = true
 # Transition variables
 var is_transitioning: bool = false
 var fade_layer: CanvasLayer
@@ -98,8 +99,9 @@ func quit_game() -> void:
 func reset_game() -> void:
 	current_scene = get_tree().current_scene
 	current_room = ""
+	player_can_move = true
 	set_mental_health(100.0) # Will reset the shader if connected
-	is_paused = false
+	resume_game()
 
 func set_is_game_over() -> void:
 	is_game_over = true

@@ -26,21 +26,21 @@ func _process(delta: float) -> void:
 ## Updates the mental_health_bar fill color
 ## TODO see if transition between values can be fluidified 
 func _update_mental_health_fill_color() -> void:
-	var mental_health: int = GameManager.mental_health
+	var mental_health: float = GameManager.mental_health
 	var fill_style = mental_health_bar.get_theme_stylebox("fill").duplicate()
-	if mental_health > 70:
+	if mental_health > 70.0:
 		# 5EDC8A
 		fill_style.bg_color = Color("5EDC8A")
 		pass
-	elif mental_health > 40:
+	elif mental_health > 40.0:
 		# F2C94C
 		fill_style.bg_color = Color("F2C94C")
 		pass
-	elif mental_health > 15:
+	elif mental_health > 15.0:
 		# F2994A
 		fill_style.bg_color = Color("F2994A")
 		pass
-	elif mental_health > 0:
+	elif mental_health > 0.0:
 		# EB5757
 		fill_style.bg_color = Color("EB5757")
 		pass

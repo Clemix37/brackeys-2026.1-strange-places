@@ -25,7 +25,7 @@ func _on_body_exited_break_room_door(body: Node2D) -> void:
 	player_face_door_break_room = false
 	toggle_enter_break_room_label_visibility(false)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_face_door_break_room and Input.is_action_pressed("interact"):
 		var main_node = get_tree().current_scene
 		main_node.change_room("uid://dqq81165hq83l", "Break Room")
