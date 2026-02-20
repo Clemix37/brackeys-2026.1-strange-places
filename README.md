@@ -16,6 +16,8 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 - [ ] description on the game menu ?
 - [ ] bg of the main menu
 - [ ] rich game name label
+- [ ] random events with warning flashed on screen (improvised meeting)
+- [ ] new deadline for project...
 
 Tasks:
 

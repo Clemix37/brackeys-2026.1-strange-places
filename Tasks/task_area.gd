@@ -2,11 +2,7 @@ extends Area2D
 class_name TaskArea
 
 # Export variables
-@export var task_name: String = "Work"
-@export var doing_task: String = "Working..."
-@export var mental_damage: float = 10.0 # damage mental health; use negative value to restore
-@export var work_time: float = 2.0
-@export var can_be_done_multiple_times: bool = false
+@export var task_id: String
 @export var collision_radius: int = 15
 
 # On ready variables
@@ -19,10 +15,14 @@ signal task_completed(damage)
 # Variables
 var player_in_range = false
 var working = false
-var completed = false
+var task: Task
 
 ## When script is loaded
 func _ready():
+	print(task_id)
+	task = TaskManager.get_task_by_id(task_id)
+	if !task: printerr("No task with this id")
+	
 	reset_interaction_label()
 	toggle_interaction_label_visibility(false)
 	# Changes the radius depending on the radius we gave
@@ -42,12 +42,12 @@ func _on_body_exited(body):
 		toggle_interaction_label_visibility(false)
 
 func _process(delta):
-	if player_in_range and Input.is_action_just_pressed("interact") and not working:
+	if player_in_range and Input.is_action_just_pressed("interact") and not working and !task.completed:
 		start_task()
 
 ## Display the command + task_name on the interaction label
 func reset_interaction_label():
-	interact_label.text = "[E] " + task_name
+	interact_label.text = "[E] " + task.name
 
 ## Changes the visibility property of the interaction label
 func toggle_interaction_label_visibility(visible: bool = true) -> void:
@@ -55,25 +55,24 @@ func toggle_interaction_label_visibility(visible: bool = true) -> void:
 
 func start_task():
 	working = true
-	interact_label.text = doing_task
+	interact_label.text = task.working_msg
 	
-	var duration = work_time
+	var duration = task.duration
 	var tick_rate = 0.1
 	var elapsed = 0.0
 	
-	var damage_per_tick: float = mental_damage * tick_rate / duration
+	var damage_per_tick: float = task.mental_damage * tick_rate / duration
 	while elapsed < duration:
 		await get_tree().create_timer(tick_rate).timeout
 		GameManager.set_mental_health(GameManager.mental_health - damage_per_tick)
 		elapsed += tick_rate
-		
-	task_completed.emit(mental_damage)
+	
+	if !task.next:
+		task.emit(task.mental_damage)
 	reset_interaction_label()
 	working = false
 
 ## Only for desks
-func from_task(task: Task):
-	task_name = task.name
-	doing_task = task.working
-	mental_damage = task.mental_damage
-	work_time = task.duration
+func from_task(from_task: Task):
+	task_id = from_task.id
+	task = from_task

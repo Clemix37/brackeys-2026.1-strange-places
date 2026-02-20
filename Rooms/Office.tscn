@@ -48,18 +48,18 @@ tile_set = ExtResource("1_3o15l")
 
 [node name="BreakRoomDoorArea" type="Area2D" parent="Door" unique_id=1729239130]
 unique_name_in_owner = true
-position = Vector2(528, 10)
+position = Vector2(-2, 0)
 
 [node name="BreakRoomDoorCollision" type="CollisionShape2D" parent="Door/BreakRoomDoorArea" unique_id=787992871]
-position = Vector2(-528, -8)
+position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_846vk")
 
 [node name="EnterBreakRoomLabel" type="Label" parent="Door/BreakRoomDoorArea" unique_id=421148457]
 unique_name_in_owner = true
-offset_left = -501.0
-offset_top = -7.0
-offset_right = -337.0
-offset_bottom = 16.0
+offset_left = 23.0
+offset_top = -6.0
+offset_right = 187.0
+offset_bottom = 17.0
 text = "[E] Enter Break Room"
 metadata/_edit_use_anchors_ = true
 

@@ -29,8 +29,4 @@ tile_set = ExtResource("2_rp0kd")
 
 [node name="Task" parent="." unique_id=276509297 instance=ExtResource("3_yndqs")]
 position = Vector2(16, -8)
-task_name = "Send email"
-doing_task = "Sending..."
-mental_damage = 40.0
-work_time = 5.0
 collision_radius = 20

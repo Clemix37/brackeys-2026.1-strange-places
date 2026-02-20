@@ -62,8 +62,8 @@ func change_room_name(room_name: String) -> void:
 func update_tasks_lists() -> void:
 	var content := "[b][i]Tasks[/i][/b]"
 
-	for task_key in TaskManager.tasks.keys():
-		var task: Task = TaskManager.tasks[task_key]
+	for task_key in TaskManager.visible_tasks.keys():
+		var task: Task = TaskManager.visible_tasks[task_key]
 		content += "\n- " + task.name
 
 	tasks_lists.text = content

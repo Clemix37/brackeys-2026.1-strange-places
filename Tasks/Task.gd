@@ -3,7 +3,7 @@ class_name Task
 
 var id: String
 var name: String
-var working: String # displayed text when doing task
+var working_msg: String # displayed text when doing task
 var mental_damage: float # use negative value for restoring sanity
 var duration: float
 var completed: bool
@@ -15,6 +15,7 @@ static func init(id: String, name: String, working: String, mental_damage: float
 	var new = Task.new()
 	new.id = id
 	new.name = name
+	new.working_msg = working
 	new.mental_damage = mental_damage
 	new.duration = duration
 	new.next = next
@@ -22,5 +23,6 @@ static func init(id: String, name: String, working: String, mental_damage: float
 	return new
 
 func complete() -> void:
+	print(name + " completed in Task")
 	completed = true
 	task_completed.emit(self)
