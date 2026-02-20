@@ -29,12 +29,12 @@ func _on_body_exited_office_door(body: Node2D) -> void:
 	player_in_range_door_office = false
 	toggle_enter_office_label_visibility(false)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_in_range_door_office and Input.is_action_pressed("interact"):
 		var main_node = get_tree().current_scene
 		# Office room
 		main_node.change_room("uid://srpdj5vapkv3", "Open Space")
 
-func set_scan_doc_complete(damage: float) -> void:
+func set_scan_doc_complete(_damage: float) -> void:
 	var task = TaskManager.get_task_by_id(TaskManager.TasksIds.SCAN_DOC)
 	if task: task.complete()

@@ -20,7 +20,7 @@ func set_task(task: Task):
 	taskArea.from_task(task)
 	_task = task
 
-func _on_task_completed(mental_damage):
+func _on_task_completed(_mental_damage):
 	TaskManager.tasks.erase(_task.id)
 	_task.complete()
 	task_area.queue_free()

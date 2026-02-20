@@ -4,6 +4,7 @@ class_name TaskArea
 # Export variables
 @export var task_id: String
 @export var collision_radius: int = 15
+@export var is_random: bool = false
 
 # On ready variables
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -19,9 +20,7 @@ var task: Task
 
 ## When script is loaded
 func _ready():
-	print(task_id)
 	task = TaskManager.get_task_by_id(task_id)
-	if !task: printerr("No task with this id")
 	
 	reset_interaction_label()
 	toggle_interaction_label_visibility(false)
@@ -31,9 +30,14 @@ func _ready():
 
 ## When a body enters the area 
 func _on_body_entered(body):
-	if body.name == "Player" && task:
-		player_in_range = true
-		toggle_interaction_label_visibility(true)
+	# that's not the player
+	if body.name != "Player": return
+	# No task or task compelted
+	if not task or task.completed: return
+	# The random task is not 
+	if is_random and (not TaskManager.current_random_task or TaskManager.current_random_task.id != task_id): return
+	player_in_range = true
+	toggle_interaction_label_visibility(true)
 
 ## When a body exits the area
 func _on_body_exited(body):
@@ -55,6 +59,7 @@ func toggle_interaction_label_visibility(is_label_visible: bool = true) -> void:
 	interact_label.visible = is_label_visible
 
 func start_task():
+	if task.completed: return
 	GameManager.player_can_move = false
 	working = true
 	interact_label.text = task.working_msg

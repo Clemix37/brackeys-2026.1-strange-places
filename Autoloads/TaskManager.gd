@@ -1,6 +1,7 @@
 extends Node
 
 signal updated_tasks
+signal random_task_picked(random_task: Task)
 
 const TasksIds = {
 	SEND_MAIL = "send-mail",
@@ -10,9 +11,9 @@ const TasksIds = {
 	ORDER_PAPER = "order-paper",
 	SOCIALIZE = "socialize",
 	DRINK_COFFEE = "drink-coffee", # should not be written on task list
-	
 	PRINT_DOCS = "print-docs",
 	PICKUP_PRINTED_DOCS = "pickup-printed-docs",
+	# Random ones
 	RANDOM_MEETING = "random-meeting",
 	RANDOM_CLIENT_CALL = "random-client-call"
 }
@@ -42,7 +43,7 @@ func create_tasks() -> void:
 	add_task(drinkCoffeeTask, false)
 	# Fix bug
 	var fixBugTask: Task = Task.init(TasksIds.FIX_BUG, "Fix bug", "Fixing it...", 15.0, 4.0)
-	add_task(fixBugTask, false)
+	add_task(fixBugTask)
 	# Print docs, pickup them, order paper
 	var orderPaperTask: Task = Task.init(TasksIds.ORDER_PAPER, "Order paper", "Ordering...", 5, 3.0)
 	var pickupPrintedDocsTask = Task.init(TasksIds.PICKUP_PRINTED_DOCS, "Pick up printed docs", "Picking up...", 5.0, 1.0, orderPaperTask)
@@ -52,8 +53,12 @@ func create_tasks() -> void:
 
 ## Create tasks that are random
 func create_random_tasks() -> void:
+	# Meeting
 	random_event_tasks[TasksIds.RANDOM_MEETING] = Task.init(TasksIds.RANDOM_MEETING, "Meeting", "Listening...", 30.0, 4.0)
+	tasks[TasksIds.RANDOM_MEETING] = random_event_tasks[TasksIds.RANDOM_MEETING]
+	# Client calling
 	random_event_tasks[TasksIds.RANDOM_CLIENT_CALL] = Task.init(TasksIds.RANDOM_CLIENT_CALL, "Calling client", "Listening...", 10.0, 3.0)
+	tasks[TasksIds.RANDOM_CLIENT_CALL] = random_event_tasks[TasksIds.RANDOM_CLIENT_CALL]
 
 ## Create tasks descriptions
 func create_tasks_descriptions() -> void:
@@ -101,3 +106,4 @@ func add_random_task(task: Task) -> void:
 	current_random_task = task
 	add_task(task)
 	updated_tasks.emit()
+	random_task_picked.emit(task)

@@ -6,6 +6,9 @@ var desk_scene = preload("uid://d28fvif4erwup")
 var desk_with_task_scene = preload("uid://cmfsqydbppmlk")
 
 func _ready():
+	display_desks()
+
+func display_desks() -> void:
 	var deskTasks = []
 	for task in TaskManager.tasks:
 		if TaskManager.DeskTasks.has(task):
