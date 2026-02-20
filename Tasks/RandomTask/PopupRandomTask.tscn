@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bp6idg3hfu3up"]
+
+[ext_resource type="Script" uid="uid://djusbiq706u8q" path="res://Tasks/RandomTask/popup_random_task.gd" id="1_8kqxl"]
+
+[node name="PopupRandomTask" type="CanvasLayer" unique_id=1482498218]
+layer = 5
+script = ExtResource("1_8kqxl")
+
+[node name="EventPopup" type="Control" parent="." unique_id=1271284583]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EventPopup" unique_id=1333769590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="EventPopup/HBoxContainer" unique_id=1746421260]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="EventPopup/HBoxContainer/Panel" unique_id=555777827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EventPopup/HBoxContainer/Panel/HBoxContainer" unique_id=1796952630]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 20
+
+[node name="TitleTask" type="Label" parent="EventPopup/HBoxContainer/Panel/HBoxContainer/MarginContainer" unique_id=81772313]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "TITLE TASK"
+
+[node name="MarginContainer2" type="MarginContainer" parent="EventPopup/HBoxContainer/Panel/HBoxContainer" unique_id=1647525920]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DescriptionLabel" type="Label" parent="EventPopup/HBoxContainer/Panel/HBoxContainer/MarginContainer2" unique_id=478309567]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "DESCRIPTION "
+autowrap_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="EventPopup/HBoxContainer/Panel/HBoxContainer" unique_id=1788979066]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="OkayBtn" type="Button" parent="EventPopup/HBoxContainer/Panel/HBoxContainer/MarginContainer3" unique_id=1864064964]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+text = "Okay"

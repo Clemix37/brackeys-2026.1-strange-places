@@ -12,14 +12,20 @@ const TasksIds = {
 	DRINK_COFFEE = "drink-coffee", # should not be written on task list
 	
 	PRINT_DOCS = "print-docs",
-	PICKUP_PRINTED_DOCS = "pickup-printed-docs"
+	PICKUP_PRINTED_DOCS = "pickup-printed-docs",
+	RANDOM_MEETING = "random-meeting",
+	RANDOM_CLIENT_CALL = "random-client-call"
 }
+var tasks_descriptions: Dictionary[String, String] = {}
 const DeskTasks = [TasksIds.SEND_MAIL, TasksIds.FIX_BUG, TasksIds.PRINT_DOCS, TasksIds.SEND_SCANNED_REPORT, TasksIds.ORDER_PAPER]
 var tasks: Dictionary[String, Task] = {}
 var visible_tasks: Dictionary[String, Task] = {}
+var random_event_tasks: Dictionary[String, Task] = {}
 
 func _ready() -> void:
 	create_tasks()
+	create_random_tasks()
+	create_tasks_descriptions()
 
 ## Creates tasks for the player
 func create_tasks() -> void:
@@ -43,12 +49,22 @@ func create_tasks() -> void:
 	var printDocsTask = Task.init(TasksIds.PRINT_DOCS, "Print documents", "Printing...", 10.0, 2.0, pickupPrintedDocsTask)
 	add_task(printDocsTask)
 
+## Create tasks that are random
+func create_random_tasks() -> void:
+	random_event_tasks[TasksIds.RANDOM_MEETING] = Task.init(TasksIds.RANDOM_MEETING, "Meeting", "Listening...", 30.0, 4.0)
+	random_event_tasks[TasksIds.RANDOM_CLIENT_CALL] = Task.init(TasksIds.RANDOM_CLIENT_CALL, "Calling client", "Listening...", 10.0, 3.0)
+
+## Create tasks descriptions
+func create_tasks_descriptions() -> void:
+	tasks_descriptions[TasksIds.RANDOM_MEETING] = "Hurry-up ! A useless meeting is starting !"
+	tasks_descriptions[TasksIds.RANDOM_CLIENT_CALL] = "What can i hear ? Your phone is ringing, an important client is calling, go pick it up !"
+
 func add_task(task: Task, visible: bool = true):
 	tasks[task.id] = task
 	task.task_completed.connect(_on_task_completed)
 	if visible: 
 		visible_tasks[task.id] = task
-	
+
 func _on_task_completed(task: Task):
 	tasks.erase(task.id)
 	if visible_tasks.has(task.id):
@@ -57,9 +73,15 @@ func _on_task_completed(task: Task):
 		add_task(task.next)
 	updated_tasks.emit()
 
+## Gets the task by its id
 func get_task_by_id(id_task: String) -> Task:
 	if !tasks.has(id_task): return null
 	return tasks.get(id_task)
+
+## Gets the task description by its id
+func get_description_of_task_by_id(id_task: String) -> String:
+	if !tasks_descriptions.has(id_task): return ""
+	return tasks_descriptions.get(id_task)
 
 ## Resets the current tasks
 func reset_tasks() -> void:
@@ -67,7 +89,11 @@ func reset_tasks() -> void:
 	visible_tasks = {}
 	create_tasks()
 
+## Set a task that is not currently visible as visible
 func set_task_visible(task_id: String) -> void:
 	if !tasks.has(task_id) or visible_tasks.has(task_id): return
 	var the_task: Task = tasks.get(task_id)
 	visible_tasks[task_id] = the_task
+
+func update_task_list() -> void:
+	updated_tasks.emit()

@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://uigkkw0jvuji" path="res://Main/main.gd" id="1_w1egk"]
 [ext_resource type="PackedScene" uid="uid://v6g1c7qbtj0r" path="res://UI/hud.tscn" id="2_w1egk"]
 [ext_resource type="PackedScene" uid="uid://byv5ilwluy5t6" path="res://UI/GameOver.tscn" id="4_ps1la"]
+[ext_resource type="Script" uid="uid://702jgrt2nsnx" path="res://Tasks/random_task_manager.gd" id="5_6aewd"]
+[ext_resource type="PackedScene" uid="uid://bp6idg3hfu3up" path="res://Tasks/RandomTask/PopupRandomTask.tscn" id="6_u2i7p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rchnd"]
 shader = ExtResource("1_lv82p")
@@ -21,6 +23,10 @@ shader_parameter/color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=1400401687]
 script = ExtResource("1_w1egk")
+
+[node name="RandomTaskManager" type="Node" parent="." unique_id=1621165599]
+unique_name_in_owner = true
+script = ExtResource("5_6aewd")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=1093986711]
 unique_name_in_owner = true
@@ -42,5 +48,9 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 
 [node name="GameOver" parent="." unique_id=610543787 instance=ExtResource("4_ps1la")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PopupRandomTask" parent="." unique_id=1482498218 instance=ExtResource("6_u2i7p")]
 unique_name_in_owner = true
 visible = false
