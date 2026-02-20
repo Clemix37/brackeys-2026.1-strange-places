@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d28fvif4erwup"]
 
-[ext_resource type="Script" uid="uid://gu1wqi10cl0p" path="res://Tasks/desk.gd" id="1_aok4n"]
+[ext_resource type="Script" uid="uid://gu1wqi10cl0p" path="res://Tasks/Desks/desk.gd" id="1_aok4n"]
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="2_4otko"]
 
 [node name="Desk" type="Node2D" unique_id=1798775678]

@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var spawn_points = self.get_children()
 
-var desk_scene = preload("res://Tasks/Desk.tscn")
-var desk_with_task_scene = preload("res://Tasks/DeskWithTask.tscn")
+var desk_scene = preload("uid://d28fvif4erwup")
+var desk_with_task_scene = preload("uid://cmfsqydbppmlk")
 
 func _ready():
 	var deskTasks = []

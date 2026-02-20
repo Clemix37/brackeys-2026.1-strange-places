@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://cmfsqydbppmlk"]
 
-[ext_resource type="Script" uid="uid://cjjjf1ddo3ghm" path="res://Tasks/desk_with_task.gd" id="1_us4pg"]
+[ext_resource type="Script" uid="uid://cjjjf1ddo3ghm" path="res://Tasks/Desks/desk_with_task.gd" id="1_us4pg"]
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="2_rp0kd"]
-[ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea.tscn" id="3_yndqs"]
+[ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea/TaskArea.tscn" id="3_yndqs"]
 
 [node name="DeskWithTask" type="Node2D" unique_id=1798775678]
 script = ExtResource("1_us4pg")

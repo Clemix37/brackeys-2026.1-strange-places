@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bp6idg3hfu3up"]
 
 [ext_resource type="Script" uid="uid://djusbiq706u8q" path="res://Tasks/RandomTask/popup_random_task.gd" id="1_8kqxl"]
+[ext_resource type="Texture2D" uid="uid://dfcg341a4v82j" path="res://Assets/UI/popup-random-task-burnout-simulator.png" id="2_0c8yh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlqgl"]
+texture = ExtResource("2_0c8yh")
 
 [node name="PopupRandomTask" type="CanvasLayer" unique_id=1482498218]
 layer = 5
@@ -31,6 +35,7 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="EventPopup/HBoxContainer" unique_id=1746421260]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_mlqgl")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="EventPopup/HBoxContainer/Panel" unique_id=555777827]
 layout_mode = 1
@@ -53,7 +58,7 @@ text = "TITLE TASK"
 
 [node name="MarginContainer2" type="MarginContainer" parent="EventPopup/HBoxContainer/Panel/HBoxContainer" unique_id=1647525920]
 layout_mode = 2
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 20
 
 [node name="DescriptionLabel" type="Label" parent="EventPopup/HBoxContainer/Panel/HBoxContainer/MarginContainer2" unique_id=478309567]
@@ -69,7 +74,7 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 10
 
 [node name="OkayBtn" type="Button" parent="EventPopup/HBoxContainer/Panel/HBoxContainer/MarginContainer3" unique_id=1864064964]
 unique_name_in_owner = true
