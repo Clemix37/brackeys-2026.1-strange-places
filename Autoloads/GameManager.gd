@@ -104,3 +104,4 @@ func reset_game() -> void:
 func set_is_game_over() -> void:
 	is_game_over = true
 	is_game_over_called.emit()
+	pause_game()
