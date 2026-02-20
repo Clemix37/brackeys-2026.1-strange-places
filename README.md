@@ -21,4 +21,4 @@ Bugs:
 
 - [x] Player is moving when game over...
 - [x] can navigate bewteen rooms when task not finished
-- [ ] Game over screen buttons not working when clicking
+- [x] Game over screen buttons not working when clicking
