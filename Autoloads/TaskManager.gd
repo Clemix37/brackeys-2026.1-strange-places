@@ -2,6 +2,7 @@ extends Node
 
 signal updated_tasks
 signal random_task_picked(random_task: Task)
+signal random_task_deleted
 
 const TasksIds = {
 	SEND_MAIL = "send-mail",
@@ -9,11 +10,11 @@ const TasksIds = {
 	SCAN_DOC = "scan-doc",
 	FIX_BUG = "fix-bug",
 	ORDER_PAPER = "order-paper",
-	SOCIALIZE = "socialize",
 	DRINK_COFFEE = "drink-coffee", # should not be written on task list
 	PRINT_DOCS = "print-docs",
 	PICKUP_PRINTED_DOCS = "pickup-printed-docs",
 	# Random ones
+	RANDOM_SOCIALIZE = "random-socialize",
 	RANDOM_MEETING = "random-meeting",
 	RANDOM_CLIENT_CALL = "random-client-call"
 }
@@ -59,6 +60,9 @@ func create_random_tasks() -> void:
 	# Client calling
 	random_event_tasks[TasksIds.RANDOM_CLIENT_CALL] = Task.init(TasksIds.RANDOM_CLIENT_CALL, "Calling client", "Listening...", 10.0, 3.0)
 	tasks[TasksIds.RANDOM_CLIENT_CALL] = random_event_tasks[TasksIds.RANDOM_CLIENT_CALL]
+	# Colleagues wants to socialize
+	random_event_tasks[TasksIds.RANDOM_SOCIALIZE] = Task.init(TasksIds.RANDOM_SOCIALIZE, "Socialize", "Socializing...", 30.0, 3.0)
+	tasks[TasksIds.RANDOM_SOCIALIZE] = random_event_tasks[TasksIds.RANDOM_SOCIALIZE]
 
 ## Create tasks descriptions
 func create_tasks_descriptions() -> void:
@@ -77,6 +81,10 @@ func _on_task_completed(task: Task):
 		visible_tasks.erase(task.id)
 	if task.next:
 		add_task(task.next)
+	# Clears the current random task
+	if current_random_task and current_random_task.id == task.id:
+		current_random_task = null
+		random_task_deleted.emit()
 	updated_tasks.emit()
 
 ## Gets the task by its id

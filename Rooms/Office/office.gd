@@ -4,6 +4,7 @@ extends Node2D
 @onready var break_room_door_area: Area2D = %BreakRoomDoorArea
 @onready var enter_break_room_label: Label = %EnterBreakRoomLabel
 @onready var phone_call_task: TaskArea = %PhoneCallTask
+@onready var meeting_task: TaskArea = %MeetingTask
 @onready var desk_spawns: Node2D = $DeskSpawns
 
 # Variables
@@ -14,6 +15,9 @@ func _ready() -> void:
 	TaskManager.random_task_picked.connect(_on_pick_random_task)
 	break_room_door_area.body_entered.connect(_on_body_entered_break_room_door)
 	break_room_door_area.body_exited.connect(_on_body_exited_break_room_door)
+	# Random tasks
+	phone_call_task.task_completed.connect(set_client_call_complete)
+	meeting_task.task_completed.connect(set_meeting_complete)
 
 func toggle_enter_break_room_label_visibility(to_be_visible: bool = true) -> void:
 	enter_break_room_label.visible = to_be_visible
@@ -35,5 +39,14 @@ func _process(_delta: float) -> void:
 
 func _on_pick_random_task(random_task: Task) -> void:
 	phone_call_task.visible = random_task.id == TaskManager.TasksIds.RANDOM_CLIENT_CALL
-	if TaskManager.DeskTasks.has(random_task.id):
-		desk_spawns.display_desks()
+	meeting_task.visible = random_task.id == TaskManager.TasksIds.RANDOM_MEETING
+
+func set_meeting_complete(_damage: float) -> void:
+	var task: Task = TaskManager.get_task_by_id(TaskManager.TasksIds.RANDOM_MEETING)
+	if not task: return
+	task.complete()
+
+func set_client_call_complete(_damage: float) -> void:
+	var task: Task = TaskManager.get_task_by_id(TaskManager.TasksIds.RANDOM_CLIENT_CALL)
+	if not task: return
+	task.complete()

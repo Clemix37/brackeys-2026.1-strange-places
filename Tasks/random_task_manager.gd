@@ -8,6 +8,7 @@ signal random_task_triggered(task: Task)
 var running = true
 
 func _ready():
+	TaskManager.random_task_deleted.connect(get_other_random_task)
 	if TaskManager.current_random_task: 
 		running = false
 		return
@@ -25,9 +26,14 @@ func start_random_timer():
 	running = false
 
 func trigger_random_task() -> void:
-	var random_tasks: Array[Task] = TaskManager.random_event_tasks.values()
+	# Pick only the ones not already completed
+	var random_tasks: Array[Task] = TaskManager.random_event_tasks.values().filter(func(t: Task): return not t.completed)
 	var random_task: Task = random_tasks.pick_random()
 	random_task_triggered.emit(random_task)
 
 func cancel_random_events() -> void:
 	running = false
+
+func get_other_random_task() -> void:
+	running = true
+	start_random_timer()
