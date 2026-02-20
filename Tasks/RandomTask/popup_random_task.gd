@@ -32,6 +32,5 @@ func reset_labels() -> void:
 	description_label.text = ""
 
 func accept_task() -> void:
-	TaskManager.add_task(current_task)
-	TaskManager.update_task_list()
+	TaskManager.add_random_task(current_task)
 	close_popup()

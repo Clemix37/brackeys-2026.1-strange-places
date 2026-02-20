@@ -21,6 +21,7 @@ const DeskTasks = [TasksIds.SEND_MAIL, TasksIds.FIX_BUG, TasksIds.PRINT_DOCS, Ta
 var tasks: Dictionary[String, Task] = {}
 var visible_tasks: Dictionary[String, Task] = {}
 var random_event_tasks: Dictionary[String, Task] = {}
+var current_random_task: Task = null
 
 func _ready() -> void:
 	create_tasks()
@@ -95,5 +96,7 @@ func set_task_visible(task_id: String) -> void:
 	var the_task: Task = tasks.get(task_id)
 	visible_tasks[task_id] = the_task
 
-func update_task_list() -> void:
+func add_random_task(task: Task) -> void:
+	current_random_task = task
+	add_task(task)
 	updated_tasks.emit()

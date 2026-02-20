@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="1_3o15l"]
 [ext_resource type="PackedScene" uid="uid://jbvi70mxxetw" path="res://Characters/player.tscn" id="2_kprng"]
 [ext_resource type="Script" uid="uid://dqfan6tvbmtsc" path="res://Rooms/desk_spawns.gd" id="3_a5fyk"]
+[ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea.tscn" id="5_a5fyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_846vk"]
 size = Vector2(32, 26)
@@ -27,11 +28,11 @@ tile_map_data = PackedByteArray("AAAAABMABAAIAAIAAAAAABIABAAIAAEAAAAAABEABAAIAAE
 tile_set = ExtResource("1_3o15l")
 
 [node name="GroundObjects" type="TileMapLayer" parent="Tiles" unique_id=1229204679]
-tile_map_data = PackedByteArray("AAAbAP3/HgAEAAAAAAAbAP7/HgAEAAEAAAAbAP//HgAEAAIAAAAbAAAAHgAEAAMAAAAbAAEAHgAEAAQAAAAcAP3/HgAFAAAAAAAcAP7/HgAFAAEAAAAcAP//HgAFAAIAAAAcAAAAHgAFAAMAAAAcAAEAHgAFAAQAAAAAAP3/HgAEAAAAAAAAAP7/HgAEAAEAAAAAAP//HgAEAAIAAAAAAAAAHgAEAAMAAAAAAAEAHgAEAAQAAAABAP3/HgAFAAAAAAABAP7/HgAFAAEAAAABAP//HgAFAAIAAAABAAAAHgAFAAMAAAABAAEAHgAFAAQAAAAAAAIAHgAEAAUAAAABAAIAHgAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAAbAP3/HgAEAAAAAAAbAP7/HgAEAAEAAAAbAP//HgAEAAIAAAAbAAAAHgAEAAMAAAAbAAEAHgAEAAQAAAAcAP3/HgAFAAAAAAAcAP7/HgAFAAEAAAAcAP//HgAFAAIAAAAcAAAAHgAFAAMAAAAcAAEAHgAFAAQAAAAAAP3/HgAEAAAAAAAAAP7/HgAEAAEAAAAAAP//HgAEAAIAAAAAAAAAHgAEAAMAAAAAAAEAHgAEAAQAAAABAP3/HgAFAAAAAAABAP7/HgAFAAEAAAABAP//HgAFAAIAAAABAAAAHgAFAAMAAAABAAEAHgAFAAQAAAAAAAIAHgAEAAUAAAABAAIAHgAFAAUAAAAHAP7/BwACAAAAAAAHAP//BwACAAEAAAAHAAAABwACAAIAAAAHAAEABwACAAMAAAAIAP7/BwADAAAAAAAIAP//BwADAAEAAAAIAAAABwADAAIAAAAIAAEABwADAAMAAAAVAAAACgAAAAAAAAA=")
 tile_set = ExtResource("1_3o15l")
 
 [node name="OverGroundObjects" type="TileMapLayer" parent="Tiles" unique_id=1686018961]
-tile_map_data = PackedByteArray("AAARAP3/HQAIAAAAAAARAP7/HQAIAAEAAAASAP3/HQAJAAAAAAASAP7/HQAJAAEAAAA=")
+tile_map_data = PackedByteArray("AAARAP3/HQAIAAAAAAARAP7/HQAIAAEAAAASAP3/HQAJAAAAAAASAP7/HQAJAAEAAAAVAAAABgACAAMAAAAWAAAABgADAAMAAAA=")
 tile_set = ExtResource("1_3o15l")
 
 [node name="Door" type="Node2D" parent="." unique_id=1493914376]
@@ -105,3 +106,7 @@ position = Vector2(434, 258)
 
 [node name="Player" parent="." unique_id=570324256 instance=ExtResource("2_kprng")]
 position = Vector2(52, 55)
+
+[node name="PhoneCallTask" parent="." unique_id=276509297 instance=ExtResource("5_a5fyk")]
+position = Vector2(352, 21)
+task_id = "random-client-call"

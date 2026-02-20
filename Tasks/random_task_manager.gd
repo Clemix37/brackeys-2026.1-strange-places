@@ -8,6 +8,9 @@ signal random_task_triggered(task: Task)
 var running = true
 
 func _ready():
+	if TaskManager.current_random_task: 
+		running = false
+		return
 	start_random_timer()
 
 func start_random_timer():
@@ -19,7 +22,7 @@ func start_random_timer():
 	# Running can be changed by canceling it after it has been started
 	if not running: return
 	trigger_random_task()
-	start_random_timer()
+	running = false
 
 func trigger_random_task() -> void:
 	var random_tasks: Array[Task] = TaskManager.random_event_tasks.values()
