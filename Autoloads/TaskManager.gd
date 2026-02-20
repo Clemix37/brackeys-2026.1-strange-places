@@ -68,6 +68,7 @@ func create_random_tasks() -> void:
 func create_tasks_descriptions() -> void:
 	tasks_descriptions[TasksIds.RANDOM_MEETING] = "Hurry-up ! A useless meeting is starting !"
 	tasks_descriptions[TasksIds.RANDOM_CLIENT_CALL] = "What can i hear ? Your phone is ringing, an important client is calling, go pick it up !"
+	tasks_descriptions[TasksIds.RANDOM_SOCIALIZE] = "Your colleagues are shouting your name to socialize in the break room, take a break !"
 
 func add_task(task: Task, visible: bool = true):
 	tasks[task.id] = task
