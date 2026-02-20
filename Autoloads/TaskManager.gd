@@ -14,7 +14,7 @@ const TasksIds = {
 	PRINT_DOCS = "print-docs",
 	PICKUP_PRINTED_DOCS = "pickup-printed-docs"
 }
-const DeskTasks = [TasksIds.SEND_MAIL, TasksIds.FIX_BUG, TasksIds.PRINT_DOCS]
+const DeskTasks = [TasksIds.SEND_MAIL, TasksIds.FIX_BUG, TasksIds.PRINT_DOCS, TasksIds.SEND_SCANNED_REPORT]
 var tasks: Dictionary[String, Task] = {}
 var visible_tasks: Dictionary[String, Task] = {}
 
