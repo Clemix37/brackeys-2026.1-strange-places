@@ -11,9 +11,8 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 - [ ] bg of the main menu
 - [X] rich game name label
 - [x] random events with warning flashed on screen (improvised meeting)
-- [ ] new deadline for project...
 - [ ] Add winning screen
-- [ ] add couchs for socialize random task
+- [x] add couchs for socialize random task
 - [ ] maybe add desk room
 - [x] the player doesn't knwo that's a mental health
 
