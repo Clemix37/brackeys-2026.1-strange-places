@@ -6,8 +6,6 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 
 ## Development
 
-- [ ] add rotated little funny text on game name menu
-- [ ] description on the game menu ?
 - [ ] bg of the main menu
 - [X] rich game name label
 - [x] random events with warning flashed on screen (improvised meeting)
@@ -15,6 +13,8 @@ The risk ? Hearing voices, seeing strange things happening, things disappearing.
 - [x] add couchs for socialize random task
 - [ ] maybe add desk room
 - [x] the player doesn't knwo that's a mental health
+- [ ] make web game
+- [ ] make mac support
 
 Bugs:
 

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://byv5ilwluy5t6"]
 
 [ext_resource type="Script" uid="uid://37b48vam78pc" path="res://UI/GameOver/game_over.gd" id="1_kjexa"]
+[ext_resource type="StyleBox" uid="uid://dgfs60krrq0h" path="res://UI/Buttons/btns_style_flat_normal.tres" id="2_llnap"]
+[ext_resource type="StyleBox" uid="uid://c7b785dyjond2" path="res://UI/Buttons/btns_style_flat_pressed.tres" id="3_whavd"]
+[ext_resource type="StyleBox" uid="uid://dc2ortamgcdha" path="res://UI/Buttons/btns_style_flat_hover.tres" id="4_5d1br"]
 
 [node name="GameOver" type="CanvasLayer" unique_id=610543787]
 process_mode = 2
@@ -58,16 +61,30 @@ theme_override_constants/margin_bottom = 100
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 
 [node name="TryAgainBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=862851196]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_colors/font_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_hover_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("2_llnap")
+theme_override_styles/pressed = ExtResource("3_whavd")
+theme_override_styles/hover = ExtResource("4_5d1br")
 text = "Try again"
 
 [node name="MenuBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1320836390]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_colors/font_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_hover_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("2_llnap")
+theme_override_styles/pressed = ExtResource("3_whavd")
+theme_override_styles/hover = ExtResource("4_5d1br")
 text = "Menu"
