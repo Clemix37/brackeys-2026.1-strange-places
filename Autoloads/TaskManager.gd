@@ -87,6 +87,7 @@ func _on_task_completed(task: Task):
 		current_random_task = null
 		random_task_deleted.emit()
 	updated_tasks.emit()
+	GameManager.check_win_game()
 
 ## Gets the task by its id
 func get_task_by_id(id_task: String) -> Task:

@@ -12,6 +12,7 @@ class_name TaskArea
 
 # Signals
 signal task_completed(damage: float)
+signal starting_task
 
 # Variables
 var player_in_range = false
@@ -60,6 +61,7 @@ func toggle_interaction_label_visibility(is_label_visible: bool = true) -> void:
 
 func start_task():
 	if task.completed: return
+	starting_task.emit()
 	GameManager.player_can_move = false
 	working = true
 	interact_label.text = task.working_msg

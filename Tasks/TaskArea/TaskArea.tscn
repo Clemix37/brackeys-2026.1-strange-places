@@ -8,7 +8,6 @@ radius = 15.0
 [node name="TaskArea" type="Area2D" unique_id=276509297]
 z_index = 150
 script = ExtResource("1_hmfsm")
-mental_damage = -10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1482564647]
 shape = SubResource("CircleShape2D_ikqyn")

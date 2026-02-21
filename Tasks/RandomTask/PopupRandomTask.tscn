@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djusbiq706u8q" path="res://Tasks/RandomTask/popup_random_task.gd" id="1_8kqxl"]
 [ext_resource type="Texture2D" uid="uid://dfcg341a4v82j" path="res://Assets/UI/popup-random-task-burnout-simulator.png" id="2_0c8yh"]
+[ext_resource type="AudioStream" uid="uid://cpftx5s3b8eox" path="res://Assets/Audio/SFX/notif-alert.mp3" id="3_mlqgl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlqgl"]
 texture = ExtResource("2_0c8yh")
@@ -81,3 +82,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
 text = "Okay"
+
+[node name="NotifAlertSfx" type="AudioStreamPlayer2D" parent="." unique_id=904517024]
+unique_name_in_owner = true
+stream = ExtResource("3_mlqgl")

@@ -112,10 +112,31 @@ func reset_game() -> void:
 	set_mental_health(100.0) # Will reset the shader if connected
 	resume_game()
 
+## Sets the game as over, pause it
 func set_is_game_over() -> void:
 	is_game_over = true
 	is_game_over_called.emit()
 	pause_game()
 
+## Adds a taken coffee
 func add_taken_coffee() -> void:
 	nb_coffee_taken += 1
+
+## Checks for a win game and if so, redirects to the win scene
+func check_win_game() -> void:
+	if TaskManager.visible_tasks.size() > 0: return
+	change_scene("uid://q85752mirox0", "")
+
+## Reset tasks and game
+func reset_tasks_and_game() -> void:
+	TaskManager.reset_tasks()
+	reset_game()
+
+## Resets the game completely
+func try_again() -> void:
+	reset_tasks_and_game()
+	change_scene("uid://vnucto88mppj", "")
+
+## Navigates to the menu
+func go_to_menu() -> void:
+	change_scene("uid://ctev7e6c6tvyt", "")

@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var title_task: Label = %TitleTask
 @onready var description_label: Label = %DescriptionLabel
 @onready var okay_btn: Button = %OkayBtn
+@onready var notif_alert_sfx: AudioStreamPlayer2D = %NotifAlertSfx
 
 var current_task: Task = null
 
@@ -18,6 +19,7 @@ func display_as_task(task: Task) -> void:
 	open_popup()
 
 func open_popup() -> void:
+	notif_alert_sfx.play()
 	visible = true
 	scale = Vector2.ZERO
 	create_tween().tween_property(self, "scale", Vector2.ONE, 0.2)

@@ -130,7 +130,12 @@ task_id = "pickup-printed-docs"
 collision_radius = 45
 
 [node name="SocializeTask" parent="." unique_id=1465428847 instance=ExtResource("4_i8m43")]
-position = Vector2(429, 119)
+unique_name_in_owner = true
+position = Vector2(428, 124)
 task_id = "random-socialize"
-collision_radius = 20
+collision_radius = 25
 is_random = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1938958128]
+unique_name_in_owner = true
+volume_db = 5.0

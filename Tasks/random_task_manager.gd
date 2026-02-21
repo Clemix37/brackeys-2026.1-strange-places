@@ -2,13 +2,14 @@ extends Node
 
 signal random_task_triggered(task: Task)
 
-@export var min_time: float = 10.0
-@export var max_time: float = 30.0
+@export var min_time: float = 5.0
+@export var max_time: float = 20.0
 
 var running = true
 
 func _ready():
 	TaskManager.random_task_deleted.connect(get_other_random_task)
+	GameManager.is_game_over_called.connect(cancel_random_events)
 	if TaskManager.current_random_task: 
 		running = false
 		return

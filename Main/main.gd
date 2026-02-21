@@ -2,11 +2,15 @@ extends Node2D
 
 signal room_name_changed(room_name: String)
 
+const FAIL = preload("uid://dlomp2alppfx5")
+
+@onready var bg_music: AudioStreamPlayer2D = %BgMusic
 @onready var room_container: Node2D = %RoomContainer
 @onready var hud: CanvasLayer = %HUD
 @onready var game_over: CanvasLayer = %GameOver
 @onready var random_task_manager: Node = %RandomTaskManager
 @onready var popup_random_task: CanvasLayer = %PopupRandomTask
+@onready var audio_player: AudioStreamPlayer2D = %AudioPlayer
 
 var current_room: Node = null
 var is_transitioning = false
@@ -15,6 +19,7 @@ func _ready() -> void:
 	# Loading office by default
 	load_room("uid://srpdj5vapkv3")
 	GameManager.mental_health_changed.connect(mental_health_changed)
+	GameManager.is_game_over_called.connect(stop_bg_music)
 	random_task_manager.random_task_triggered.connect(display_random_event_task)
 	
 func change_room(path: String, room_name: String):
@@ -39,6 +44,8 @@ func mental_health_changed(mental_health: float) -> void:
 
 func check_for_game_over(mental_health: float) -> void:
 	if mental_health > 0.0: return
+	audio_player.stream = FAIL
+	audio_player.play()
 	GameManager.set_is_game_over()
 	game_over.visible = true
 	hud.visible = false
@@ -54,3 +61,6 @@ func check_for_room_container_skew() -> void:
 
 func display_random_event_task(task: Task) -> void:
 	popup_random_task.display_as_task(task)
+
+func stop_bg_music() -> void:
+	bg_music.stop()

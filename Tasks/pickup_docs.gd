@@ -10,6 +10,6 @@ func _ready() -> void:
 func _update_visibility():
 	$PickupDocsTask.visible = TaskManager.visible_tasks.has(TaskManager.TasksIds.PICKUP_PRINTED_DOCS)
 
-func _on_complete_task(damage):
-	var task = TaskManager.tasks[TaskManager.TasksIds.PICKUP_PRINTED_DOCS]
-	if task: task.complete()
+func _on_complete_task(_damage):
+	var task_print_docs = TaskManager.tasks[TaskManager.TasksIds.PICKUP_PRINTED_DOCS]
+	if task_print_docs: task_print_docs.complete()

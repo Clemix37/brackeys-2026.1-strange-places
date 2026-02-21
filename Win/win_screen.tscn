@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://q85752mirox0"]
+
+[ext_resource type="Texture2D" uid="uid://cib1pocno1isv" path="res://Assets/UI/Backgroud burnout simulator.png" id="1_6lpb8"]
+[ext_resource type="Script" uid="uid://b7jjatnusw7nu" path="res://Win/win_screen.gd" id="1_iv4j1"]
+[ext_resource type="Texture2D" uid="uid://bcokylwqvqkn3" path="res://Assets/UI/burnout-simulator-win-banderolle.png" id="1_kb4pg"]
+[ext_resource type="Texture2D" uid="uid://cg2juk0twh3r5" path="res://Assets/UI/burnout-simulator-win-array.png" id="3_q8n6i"]
+[ext_resource type="StyleBox" uid="uid://dgfs60krrq0h" path="res://UI/Buttons/btns_style_flat_normal.tres" id="5_xcieq"]
+[ext_resource type="StyleBox" uid="uid://c7b785dyjond2" path="res://UI/Buttons/btns_style_flat_pressed.tres" id="6_dqrjf"]
+[ext_resource type="StyleBox" uid="uid://dc2ortamgcdha" path="res://UI/Buttons/btns_style_flat_hover.tres" id="7_vjjsd"]
+[ext_resource type="AudioStream" uid="uid://yti4o86nv1pi" path="res://Assets/Audio/SFX/win.mp3" id="8_dqrjf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kb4pg"]
+texture = ExtResource("1_6lpb8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8n6i"]
+bg_color = Color(0.13725491, 0.39215687, 0.6627451, 1)
+border_width_top = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="WinScreen" type="Control" unique_id=1745509004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iv4j1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1759794630]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kb4pg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=366083549]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1270676134]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=728472240]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_kb4pg")
+
+[node name="VictoryLabel" type="Label" parent="VBoxContainer/MarginContainer" unique_id=127231691]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "VICTORY!"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=366363676]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -422.5
+offset_top = -420.0
+offset_right = 422.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=207748117]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer" unique_id=1202744319]
+layout_mode = 2
+texture = ExtResource("3_q8n6i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer" unique_id=85391682]
+layout_mode = 2
+
+[node name="VBoxContainerTitle" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=803489718]
+layout_mode = 2
+
+[node name="MarginContainerTitle" type="MarginContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerTitle" unique_id=974638194]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerTitle/MarginContainerTitle" unique_id=1272009340]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.047058824, 0.18431373, 0.3529412, 1)
+theme_override_font_sizes/font_size = 40
+text = "EXCELLENT WORK !"
+horizontal_alignment = 1
+
+[node name="VBoxContainerDesc" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1309331145]
+layout_mode = 2
+
+[node name="MarginContainerDesc" type="MarginContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerDesc" unique_id=1768168309]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="DescLabel" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerDesc/MarginContainerDesc" unique_id=1563689572]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.13725491, 0.39215687, 0.6627451, 1)
+theme_override_font_sizes/font_size = 25
+text = "Unfortunately, we don't have the budget 
+to give you a raise
+Maybe, try again ? "
+horizontal_alignment = 1
+
+[node name="VBoxContainerSeparator" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=769198344]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerSeparator" unique_id=860133084]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerSeparator/MarginContainer" unique_id=452888854]
+modulate = Color(0.15686275, 0.42745098, 0.69803923, 1)
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxFlat_q8n6i")
+
+[node name="VBoxContainerMentalHealth" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1759034127]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerMentalHealth" unique_id=381992602]
+layout_mode = 2
+
+[node name="MentalHealthLabem" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerMentalHealth/MarginContainer" unique_id=541073744]
+layout_mode = 2
+
+[node name="VBoxContainerBtns" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=923947807]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerBtns" unique_id=776723430]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerBtns/MarginContainer" unique_id=1159854190]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="TryAgainBtn" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerBtns/MarginContainer/HBoxContainer" unique_id=1793464646]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_hover_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("5_xcieq")
+theme_override_styles/pressed = ExtResource("6_dqrjf")
+theme_override_styles/hover = ExtResource("7_vjjsd")
+text = "TRY AGAIN"
+
+[node name="MainMenuBtn" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/VBoxContainerBtns/MarginContainer/HBoxContainer" unique_id=1358637377]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_colors/font_hover_color = Color(0.15686275, 0.42745098, 0.69803923, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("5_xcieq")
+theme_override_styles/pressed = ExtResource("6_dqrjf")
+theme_override_styles/hover = ExtResource("7_vjjsd")
+text = "MAIN MENU"
+
+[node name="WinSfx" type="AudioStreamPlayer2D" parent="." unique_id=1291950955]
+unique_name_in_owner = true
+stream = ExtResource("8_dqrjf")
+autoplay = true

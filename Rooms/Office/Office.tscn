@@ -132,3 +132,7 @@ position = Vector2(448, 16)
 task_id = "random-client-call"
 collision_radius = 25
 is_random = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1344139042]
+unique_name_in_owner = true
+volume_db = 5.0

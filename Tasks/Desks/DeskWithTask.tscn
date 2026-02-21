@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cjjjf1ddo3ghm" path="res://Tasks/Desks/desk_with_task.gd" id="1_us4pg"]
 [ext_resource type="TileSet" uid="uid://b32ag0xg5udn2" path="res://Assets/tileset.tres" id="2_rp0kd"]
 [ext_resource type="PackedScene" uid="uid://kw6qyfk2wgrd" path="res://Tasks/TaskArea/TaskArea.tscn" id="3_yndqs"]
+[ext_resource type="AudioStream" uid="uid://cdrlk7x5vbvea" path="res://Assets/Audio/SFX/typing-normally.mp3" id="4_vdhwc"]
+[ext_resource type="AudioStream" uid="uid://bpkqu2kjg3wu2" path="res://Assets/Audio/SFX/typing fast.mp3" id="5_hlb2l"]
 
 [node name="DeskWithTask" type="Node2D" unique_id=1798775678]
 script = ExtResource("1_us4pg")
@@ -30,3 +32,11 @@ tile_set = ExtResource("2_rp0kd")
 [node name="Task" parent="." unique_id=276509297 instance=ExtResource("3_yndqs")]
 position = Vector2(16, -8)
 collision_radius = 20
+
+[node name="TypingNormallySfx" type="AudioStreamPlayer2D" parent="." unique_id=1308161424]
+unique_name_in_owner = true
+stream = ExtResource("4_vdhwc")
+
+[node name="TypingFastSfx" type="AudioStreamPlayer2D" parent="." unique_id=1682068144]
+unique_name_in_owner = true
+stream = ExtResource("5_hlb2l")

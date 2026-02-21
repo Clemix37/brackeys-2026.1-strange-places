@@ -13,7 +13,8 @@ config_version=5
 config/name="brackeys-2026.1-strange-places"
 run/main_scene="uid://ctev7e6c6tvyt"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://chwljngi8qltl"
+config/windows_native_icon="res://Assets/burnout_simulator_icon.ico"
 
 [autoload]
 
@@ -64,4 +65,5 @@ interact={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.3019608, 0.3019608, 0.40392157, 1)
