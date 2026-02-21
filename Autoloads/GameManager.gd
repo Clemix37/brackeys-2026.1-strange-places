@@ -19,6 +19,11 @@ var fade_layer: CanvasLayer
 var fade_rect: ColorRect
 var tween: Tween
 
+const RoomNames = {
+	BREAK_ROOM = "Break Room",
+	OPEN_SPACE = "Open Space"
+}
+
 ## Au chargement du script
 func _ready() -> void:
 	reset_game()

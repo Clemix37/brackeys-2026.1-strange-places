@@ -35,7 +35,7 @@ func _on_body_exited_break_room_door(body: Node2D) -> void:
 func _process(_delta: float) -> void:
 	if player_face_door_break_room and Input.is_action_pressed("interact"):
 		var main_node = get_tree().current_scene
-		main_node.change_room("uid://dqq81165hq83l", "Break Room")
+		main_node.change_room("uid://dqq81165hq83l", GameManager.RoomNames.BREAK_ROOM)
 
 func _on_pick_random_task(random_task: Task) -> void:
 	phone_call_task.visible = random_task.id == TaskManager.TasksIds.RANDOM_CLIENT_CALL

@@ -5,9 +5,11 @@ extends Node2D
 # Tasks
 @onready var drink_coffee_task: TaskArea = $DrinkCoffeeTask
 @onready var scan_doc_task: TaskArea = $ScanDocTask
+@onready var sofas: Node2D = %Sofas
 var player_in_range_door_office: bool = false
 
 func _ready() -> void:
+	sofas.change_sofas()
 	toggle_enter_office_label_visibility(false)
 	office_door_area.body_entered.connect(_on_body_entered_office_door)
 	office_door_area.body_exited.connect(_on_body_exited_office_door)
@@ -33,7 +35,7 @@ func _process(_delta: float) -> void:
 	if player_in_range_door_office and Input.is_action_pressed("interact"):
 		var main_node = get_tree().current_scene
 		# Office room
-		main_node.change_room("uid://srpdj5vapkv3", "Open Space")
+		main_node.change_room("uid://srpdj5vapkv3", GameManager.RoomNames.OPEN_SPACE)
 
 func set_scan_doc_complete(_damage: float) -> void:
 	var task = TaskManager.get_task_by_id(TaskManager.TasksIds.SCAN_DOC)
