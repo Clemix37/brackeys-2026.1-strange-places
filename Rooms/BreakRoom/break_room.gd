@@ -3,7 +3,7 @@ extends Node2D
 @onready var office_door_area: Area2D = %OfficeDoorArea
 @onready var enter_office_label: Label = %EnterOfficeLabel
 # Tasks
-@onready var drink_coffee_task: TaskArea = $DrinkCoffeeTask
+@onready var drink_coffee_task: TaskArea = %DrinkCoffeeTask
 @onready var scan_doc_task: TaskArea = $ScanDocTask
 @onready var sofas: Node2D = %Sofas
 var player_in_range_door_office: bool = false
@@ -14,6 +14,7 @@ func _ready() -> void:
 	office_door_area.body_entered.connect(_on_body_entered_office_door)
 	office_door_area.body_exited.connect(_on_body_exited_office_door)
 	scan_doc_task.task_completed.connect(set_scan_doc_complete)
+	drink_coffee_task.task_completed.connect(take_coffee)
 
 ## Changes the visibility of the label to enter the office
 func toggle_enter_office_label_visibility(to_be_visible: bool = true) -> void:
@@ -40,3 +41,6 @@ func _process(_delta: float) -> void:
 func set_scan_doc_complete(_damage: float) -> void:
 	var task = TaskManager.get_task_by_id(TaskManager.TasksIds.SCAN_DOC)
 	if task: task.complete()
+
+func take_coffee(_damage: float) -> void:
+	GameManager.add_taken_coffee()

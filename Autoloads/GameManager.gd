@@ -5,6 +5,9 @@ signal mental_health_changed(mental_health_value: float)
 signal room_name_changed(room_name: String)
 signal is_game_over_called
 
+const DAMAGE_MULTIPLIER_PER_COFFEE: float = 1 # taking coffee increases damage
+const SPEED_INCREASE_PER_COFFEE: int = 20 # taking coffee increases speed
+
 # Variables
 var mental_health: float = 100.0
 var current_scene: Node
@@ -13,6 +16,7 @@ var current_room: String
 var is_paused: bool = false
 var is_game_over: bool = false
 var player_can_move: bool = true
+var nb_coffee_taken: int = 0
 # Transition variables
 var is_transitioning: bool = false
 var fade_layer: CanvasLayer
@@ -112,3 +116,6 @@ func set_is_game_over() -> void:
 	is_game_over = true
 	is_game_over_called.emit()
 	pause_game()
+
+func add_taken_coffee() -> void:
+	nb_coffee_taken += 1

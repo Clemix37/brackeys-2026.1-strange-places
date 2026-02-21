@@ -68,13 +68,14 @@ func start_task():
 	var tick_rate = 0.1
 	var elapsed = 0.0
 	
-	var damage_per_tick: float = task.mental_damage * tick_rate / duration
+	var damage = task.mental_damage + GameManager.nb_coffee_taken * GameManager.DAMAGE_MULTIPLIER_PER_COFFEE
+	var damage_per_tick: float = damage * tick_rate / duration
 	while elapsed < duration:
 		await get_tree().create_timer(tick_rate).timeout
 		GameManager.set_mental_health(GameManager.mental_health - damage_per_tick)
 		elapsed += tick_rate
 	
-	task_completed.emit(task.mental_damage)
+	task_completed.emit(damage)
 	reset_interaction_label()
 	working = false
 	GameManager.player_can_move = true

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const DEFAULT_SPEED = 300.0
 var lastDir = Vector2.ZERO
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
@@ -23,7 +23,8 @@ func _physics_process(_delta: float) -> void:
 	if isGoingDown:
 		dir.y += 1
 	
-	velocity = dir.normalized() * SPEED
+	# Speed increasing by taking coffee
+	velocity = dir.normalized() * (DEFAULT_SPEED + GameManager.nb_coffee_taken * GameManager.SPEED_INCREASE_PER_COFFEE)
 	
 	# Player is NOT moving
 	if dir.length() == 0:
